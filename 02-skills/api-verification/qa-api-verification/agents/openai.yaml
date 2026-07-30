@@ -1,0 +1,8 @@
+interface:
+  display_name: "QA API Verification"
+  short_description: "Verify REST/GraphQL APIs with schema, security, performance, contract, and release evidence."
+  default_prompt: "Use $qa-api-verification to verify this API scope and produce a Conative evidence report."
+
+policy:
+  allow_implicit_invocation: true
+

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Readiness Assessor"
+  short_description: "Assess whether data is ready and safe for QA"
+  default_prompt: "Use $assess-data-readiness to assess this scope and generate a Data Readiness Assessment."

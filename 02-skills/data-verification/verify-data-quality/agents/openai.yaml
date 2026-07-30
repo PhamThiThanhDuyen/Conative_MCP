@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Quality Verifier"
+  short_description: "Run traceable data checks and report evidence"
+  default_prompt: "Use $verify-data-quality to verify this approved data scope and generate a Data Verification Report."

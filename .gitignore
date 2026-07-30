@@ -1,0 +1,36 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+.local/
+**/secrets/
+**/.secrets/
+
+# Keys and certificates
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+
+# Browser and authentication state
+**/.auth/
+**/playwright/.auth/
+**/storage-state*.json
+**/auth-state*.json
+**/session-state*.json
+
+# Local evidence that may contain sensitive runtime data
+test-results/
+playwright-report/
+blob-report/
+traces/
+
+# Generated Python and local documentation previews
+__pycache__/
+*.py[cod]
+00-presentation/*.html
+
+# Runtime demo artifacts may contain tenant or customer evidence
+06-demo/**/runs/

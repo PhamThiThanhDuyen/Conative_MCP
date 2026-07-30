@@ -1,0 +1,37 @@
+{
+  "skill": "qa-api-verification",
+  "version": "0.1",
+  "evals": [
+    {
+      "id": "api-verification-001",
+      "prompt": "Verify this release API scope from an OpenAPI spec and produce a go/no-go evidence report.",
+      "expected_patterns": ["Endpoint / Operation Catalog", "Verification Matrix", "Evidence", "Go / No-Go"],
+      "anti_patterns": ["happy path only", "invented business rule", "no environment/build"]
+    },
+    {
+      "id": "api-verification-002",
+      "prompt": "Compare old and new OpenAPI specs and identify breaking changes.",
+      "expected_patterns": ["Old", "New", "Breaking", "Consumer impact", "Severity"],
+      "anti_patterns": ["no consumer impact", "all changes treated equal"]
+    },
+    {
+      "id": "api-verification-003",
+      "prompt": "Verify GraphQL schema readiness and detect removed fields.",
+      "expected_patterns": ["query", "mutation", "errors", "introspection", "removed field"],
+      "anti_patterns": ["REST-only checks", "no GraphQL errors assertion"]
+    },
+    {
+      "id": "api-verification-004",
+      "prompt": "Produce API security release-gate checks for auth, IDOR, injection, and sensitive data exposure.",
+      "expected_patterns": ["missing token", "expired token", "IDOR", "injection", "sensitive data"],
+      "anti_patterns": ["real credentials", "destructive test without scope"]
+    },
+    {
+      "id": "api-verification-005",
+      "prompt": "Create fix recommendations from failed API verification evidence.",
+      "expected_patterns": ["Finding ID", "Suspected cause", "Fix recommendation", "Recheck command"],
+      "anti_patterns": ["confirmed root cause without evidence", "no recheck condition"]
+    }
+  ]
+}
+

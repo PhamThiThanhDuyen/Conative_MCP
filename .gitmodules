@@ -1,0 +1,3 @@
+[submodule "00-sources/product-docs"]
+	path = 00-sources/product-docs
+	url = https://gitlab.cbidigital.dev/conative/knowledges/product-docs.git

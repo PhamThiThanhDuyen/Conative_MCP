@@ -1,0 +1,4 @@
+interface:
+  display_name: "Requirement Risk Analyzer"
+  short_description: "Find requirement gaps and prioritize business risks"
+  default_prompt: "Use $analyze-requirement-risk to generate a Requirement Gap Register and Business Risk Map for this scope."

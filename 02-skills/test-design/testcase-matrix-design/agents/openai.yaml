@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manual QA Test Designer"
+  short_description: "Design manual tests with EP, BVA, decision tables"
+  default_prompt: "Use $testcase-matrix-design to discover a feature and produce execution-ready manual test cases with traceable test data."
