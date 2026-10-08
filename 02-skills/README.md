@@ -3,7 +3,7 @@
 | Capability | Skills |
 |---|---|
 | Requirement Engineering | `analyze-requirement-risk` |
-| Test Design | `testcase-matrix-design`, `automation-from-testcases` |
+| Test Design | `testcase-matrix-design`, `automation-from-testcases`, `spreadsheet-test-execution` |
 | API Verification | `qa-api-verification` |
 | Data Readiness Assessment | `assess-data-readiness` |
 | Data Verification | `verify-data-quality` |
