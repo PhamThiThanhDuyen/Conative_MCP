@@ -1,6 +1,6 @@
 # MCP Task 2 Data Coverage Checklist
 
-Source workbook: [MCP_Task2_DataCoverage_Checklist.xlsm](https://docs.google.com/spreadsheets/d/1fNGCNLP8LXFuNxhuzPbXGQEu1uanFLeO/edit)
+Source workbook: https://docs.google.com/spreadsheets/d/1fNGCNLP8LXFuNxhuzPbXGQEu1uanFLeO/edit?gid=2109707194#gid=2109707194
 
 The source is an Excel macro-enabled workbook (`.xlsm`). Use the existing workbook and preserve its format.
 
@@ -8,12 +8,12 @@ The source is an Excel macro-enabled workbook (`.xlsm`). Use the existing workbo
 
 | Worksheet | Sheet link | GID |
 | --- | --- | ---: |
-| Claude Task 2 Checklist | [Open worksheet](https://docs.google.com/spreadsheets/d/1fNGCNLP8LXFuNxhuzPbXGQEu1uanFLeO/edit?gid=1748787550#gid=1748787550) | 1748787550 |
+| Claude Task 2 Checklist-R2 | [Open worksheet](https://docs.google.com/spreadsheets/d/1fNGCNLP8LXFuNxhuzPbXGQEu1uanFLeO/edit?gid=2109707194#gid=2109707194) | 2109707194 |
 | Test case Connection with Claude | [Open worksheet](https://docs.google.com/spreadsheets/d/1fNGCNLP8LXFuNxhuzPbXGQEu1uanFLeO/edit?gid=921804472#gid=921804472) | 921804472 |
 
 ## Case execution lookup
 
-For data coverage comparisons, locate the case ID in **Claude Task 2 Checklist**, read the complete row, and identify the requested organization's result columns from their headers. Record only the requested organization's Actual and Note cells, following the execute skill. Use **Test case Connection with Claude** for Claude connection prerequisites and evidence; do not treat that worksheet as a substitute for a data comparison result.
+For data coverage comparisons, locate the case ID in **Claude Task 2 Checklist-R2**, read the complete row, and identify the requested organization's result columns from their headers. Record only the requested organization's Actual and Note cells, following the execute skill. Use **Test case Connection with Claude** for Claude connection prerequisites and evidence; do not treat that worksheet as a substitute for a data comparison result.
 
 ## Related workflow
 
