@@ -1,0 +1,7 @@
+interface:
+  display_name: "Run Conative GraphQL APIs"
+  short_description: "Run variant and product summary checks in Postman"
+  default_prompt: "Use $run-opensearch-postman-api to run the requested Conative summary API checks."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,38 @@
+Tạo 1 skill theo đúng structure đã có sẵn trong /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Execute OPS
+Mục tiêu: Tôi muốn thực thi run API trên postman để kiểm tra tính chính xác data và ghi nhận kết quả vào file google sheet
+Tài liệu:
+	+ File kết quả: https://docs.google.com/spreadsheets/d/1Ds-d0KrVq7AUSgz-WKcS5UtdGxxvHnn-HxMWCqMkWys/edit?gid=1386744145#gid=1386744145
+		1. ""Sales_by_variant"" sheet là ghi kết quả cho variant
+		2. ""Sales_by_product"" sheet là ghi kết quả cho product
+Steps:
+	1. Yêu cầu tôi cung cấp thông tin:
+		"Org", ví dụ "Melinda"
+		"from_date"
+		"to_date"
+		"from_source", ví dụ "shopify"
+	2. Sau khi có thông tin, tiến hành run API trên postman để lấy kết quả, tạo riêng cho tôi 1 skill run postman lúc này với step là
+		1. Mở Postman in-app browser
+		2. Chọn ""DUYENQA_GraphQL"" workspace
+		3. Chọn ""OpenSearch_Duyen"" enviroment
+		4. Chọn ""Duyen_GraphQL_Live"" collection
+		5. Chọn "Final"" folder
+		6. Chọn ""SignIn"" foler -> Mở ""Login"" API và click "Send" để run API -> Mở ""Choose_Org"" API và lấy organizations id từ API "SignIn"" của org được yêu cầu từ bước 1 truyền vào sau url /auth/switch-organization/ và Click "Send"
+		7. Mở Chọn ""OpenSearch_Duyen"" enviroment và truyền data tôi đã cung cấp cho bạn vào value tương ứng với từng param đã có sẵn "from_date", "to_date", "from_source" -> Save lại
+		8. Mở ""Summary_Variant" folder và Click "Query" để run API "Summary_Variant"
+		9. Mở ""Summary_Product" folder và Click "Query" để run API "Summary_Product"
+	3. Sau khi có kết quả run hãy đọc kết quả và ghi vào google sheet, tạo riêng cho tôi 1 skill ghi kết quả vào google sheet với step là
+		1. Dùng skill driver để mở google sheet in-app browser, thông tin google sheet là File kết quả trong tài liệu đã cung cấp
+		2. Tạo 1 cột trước cột ""AI Chat"" với nội dung là "<org name> - <from_source name> Summary \ln <from_date> - <to_date> \ln Kiểm tra ngày <today>"
+		3. Dựa vào kết quả đã run hãy ghi kết quả vào file google sheet dựa theo từng metric đã define
+		Rule ghi:
+			+ Kết quả khi run tại API ""Summary_Variant"" thì ghi vào ""Sales_by_variant"" sheet
+			+ Kết quả khi run tại API ""Summary_Product"" thì ghi vào ""Sales_by_product"" sheet
+			+ Nếu metric đó tick xanh thì đánh "Passed", nếu metric đó tick đỏ thì đánh "Failed"
+			+ Nếu metric nào "Failed" thì "Chèn" > "Ghi chú" trên ô đang được đánh "Failed" và ghi nội dung failed từ API trả về
+
+Lưu ý khi tạo skill: dùng simple language
+
+###Thông tin cần cung cấp khi dùng skill
+Org, from_date, to_date, from_source. 
+Ví dụ:
+Org: Melinda; from_date: 2026-10-01; to_date: 2026-10-15; from_source: shopify

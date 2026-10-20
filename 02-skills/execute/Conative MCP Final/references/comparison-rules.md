@@ -52,7 +52,7 @@ Use the workflow organization as the canonical label for comparison and spreadsh
 | Milanova | Low | Shopify | `shopify` |
 | Uncle Todd | Low | AMZ | `amazon` |
 
-The `Claude Task 2 Checklist-R2` tab currently exposes organization-specific result headers `Actual Melinda` and `Note Melinda`. This source does not show equivalent result/note columns for the other organizations listed above. Do not assume those columns exist or write to another organization's cells; resolve the workbook/tab and authorized output columns before executing a case for any other organization.
+The previously inspected `Claude Task 2 Checklist-R2` tab exposed `Actual Melinda` and `Note Melinda`; it did not establish equivalent headers for other organizations or verify the channel-specific Note and Version headers now required by the result workflow. Do not assume those columns exist or write to another organization's cells; resolve the live workbook/tab and authorized `Actual <org>`, `Note <org> - <channel>`, and `Version <org> - <channel>` columns before recording a case.
 
 ## Field mappings in the source
 

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Record GraphQL Results"
+  short_description: "Write verified API statuses and failure notes to GraphQLV2"
+  default_prompt: "Use $record-graphql-results-to-sheet to record the completed API run in the matching results tab."
+
+policy:
+  allow_implicit_invocation: true

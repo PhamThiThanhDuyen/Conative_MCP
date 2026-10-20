@@ -1,0 +1,7 @@
+interface:
+  display_name: "Execute OPS Summary Workflow"
+  short_description: "Run summary APIs and record results in Google Sheets"
+  default_prompt: "Use $execute-ops-summary-workflow to run the Conative summary APIs and record their results."
+
+policy:
+  allow_implicit_invocation: true
