@@ -4,7 +4,7 @@
 
 - Run ID:
 - Run time and timezone:
-- Google Sheet execution date for `Version <org> - <channel>`: `<Mon d, yyyy>` (example: `Oct 16, 2026`)
+- Google Sheet execution date for `Version <org> - <channel>`: `<Mon d, yyyy hh:mm>` real time(example: `Oct 16, 2026 10:28`)
 - Test case ID:
 - Organization:
 - Channel/source:
@@ -37,7 +37,7 @@ write `Not numeric` and describe whether values match. For BLOCKED cases do not
 present unavailable results as completed comparisons.
 
 ```text
-- Status: <PASS | FAIL | PARTIAL | BLOCKED> <xuống hàng>
+- Status: <PASS | FAIL | BLOCKED> <xuống hàng>
 - Compared field(s): <field and confirmed QE mapping(s), or N/A> <xuống hàng>
 - Claude value(s): <value(s), or Not available> <xuống hàng>
 - QE API value(s): <value(s), or Not available> <xuống hàng>
@@ -45,9 +45,8 @@ present unavailable results as completed comparisons.
 - Claude timerange: <returned timerange, Not stated, or Not available> <xuống hàng>
 - Expected result conditions: <conditions and outcome, or N/A> <xuống hàng>
 - Unmapped expected field(s): <field(s), or N/A> <xuống hàng>
-- Scope/context: <observed scope, or Not available> <xuống hàng>
 - Root cause: <evidence-based cause, Unknown, or N/A> <xuống hàng>
-- Blocker/limitation: <specific limitation, or N/A> <xuống hàng>
+- Ticket OP: <id ticket OP after create bug> if you has been create yet, note `N/A`
 ```
 
 ## Status rules and precedence
@@ -61,10 +60,9 @@ limitations:
    unavailable, a request fails, scope/rules are unresolved, or no expected field
    remains comparable. Use this when there is no demonstrated failure and the
    missing input prevents a reliable conclusion.
-3. `PARTIAL`: mapped checks are complete and otherwise pass, but at least one
-   expected field has no confirmed QE mapping. List skipped expected fields.
-4. `PASS`: every expected field has a confirmed mapping, all required values
-   match, and all explicit Expected result conditions hold.
+3. `PASS`: every expected field has a confirmed mapping, all required values
+   match, and all explicit Expected result conditions hold, least one
+   expected field has no confirmed QE mapping with Claude. List skipped expected fields.
 
 An unmapped non-expected extra field is skipped and does not change status. An
 unmapped expected field can never receive PASS. HTTP success alone is not PASS.

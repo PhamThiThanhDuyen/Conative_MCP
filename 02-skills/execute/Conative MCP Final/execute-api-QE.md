@@ -50,6 +50,15 @@ changes unless the user explicitly requests that change.
      request's configured timezone and existing end-date inclusivity convention.
      Resolve relative periods using the execution date and record the resolved
      boundaries. Stop if the period or timezone cannot be resolved.
+   - `forecast_time`: when the prompt requests `Next <x>-Day Sales (AI)`, set
+     `from` to today's execution date and `to` to that date plus `x` calendar days,
+     both as `YYYY-MM-DD`. For example, Next 90-Day Sales (AI) uses today through
+     today + 90 days. Do not reuse the prompt's historical sales period for this
+     forecast window. Resolve and verify both dates before sending the QE request.
+   - `fields`: preserve the complete existing `fields` array exactly as it appears
+     in the selected saved request. Do not remove, replace, reorder, or reduce
+     fields while preparing the request-local overlay, including when the prompt
+     compares only one metric.
    - `sort_field`: when the prompt requests a top-N/ranking and the selected
      request uses this variable, set it to the requested metric field and
      preserve the requested direction using the existing direction parameter.

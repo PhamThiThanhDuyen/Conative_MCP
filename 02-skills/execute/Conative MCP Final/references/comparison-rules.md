@@ -2,7 +2,7 @@
 
 ## Source and scope
 
-Field mappings below were read from the `Field compare` tab (columns A:D, rows 1:72) of the source workbook [`MCP_Task2_DataCoverage_Checklist.xlsm`](https://docs.google.com/spreadsheets/d/1fNGCNLP8LXFuNxhuzPbXGQEu1uanFLeO/edit?gid=1825555923#gid=1825555923), supplied for this task. The tab headers are `ID`, `Group`, `Claude`, and `QE API`.
+Field mappings and prompt classifications below were read from the `Field compare` tab (columns A:H, header row 2 and data rows 3:107) of the source workbook [`MCP_Task2_DataCoverage_Checklist.xlsx`](https://docs.google.com/spreadsheets/d/1fNGCNLP8LXFuNxhuzPbXGQEu1uanFLeO/edit?usp=sharing). The headers are `ID`, `Group`, `Claude`, `QE API`, `Total Prompt`, `Row Prompt`, `Priority`, and `Prompt`.
 
 This table is a field-name mapping reference. It does not, by itself, approve business meaning, formulas, expected values, or a tolerance. Confirm the requested field and scope from the selected test case and use the existing execution guidance in `../../Conative MCP/execute-compare-data-conative-MCP-with-QE.md`.
 
@@ -54,6 +54,24 @@ Use the workflow organization as the canonical label for comparison and spreadsh
 
 The previously inspected `Claude Task 2 Checklist-R2` tab exposed `Actual Melinda` and `Note Melinda`; it did not establish equivalent headers for other organizations or verify the channel-specific Note and Version headers now required by the result workflow. Do not assume those columns exist or write to another organization's cells; resolve the live workbook/tab and authorized `Actual <org>`, `Note <org> - <channel>`, and `Version <org> - <channel>` columns before recording a case.
 
+## Prompt coverage and priority tags
+
+Use these columns as test-case authoring metadata, separate from field mapping and result validity:
+
+- `Total Prompt = Total`: the field is tagged for an aggregate/total-style prompt.
+- `Row Prompt = Row`: the field is tagged for an item-level row prompt.
+- A field tagged in both columns can have both prompt shapes. Where the test asks for product and variant separately, create a separate prompt for each level.
+- `Priority` is the source's prioritization label; filter to the requested priority rather than treating every tagged field as equally urgent.
+- `Prompt` is a checkbox tracking prompt handling. In this snapshot it is checked for `Gross Sales` and `Balance`. A checked box is not proof that the QE API mapping is valid or that comparison is supported.
+
+At the current snapshot, 16 fields have both `Total Prompt = Total` and `Priority = Immediate`:
+
+`Total count` (`pagination.total`), `Gross Sales` (`gross_sales`), `Gross Quantity` (`gross_quantity`), `Return Value` (`return_value`), `Return Quantity` (`return_quantity`), `Total Sales` (`total_sales`), `Net Sales` (`net_sales`), `Net Quantity` (`net_quantity`), `Tax` (`tax`), `Discount Value` (`discount_value`), `Next 90-Day Sales (AI)` (`sales_forecast`), `Product Views` (`product_views`), `Ad spend` (`ad_spend`), `Ad click` (`ad_clicks`), `Stock` (`stock`), and `On Order` (`on_order`).
+
+18 fields have both `Row Prompt = Row` and `Priority = Immediate`:
+
+`Variant Title` (`variant_title`), `SKU` (`sku`), `Days On Site` (`days_on_site`), plus the 15 shared metrics from the Total list other than `Total count`. A prompt tag does not repair a blank field mapping or establish a comparison tolerance.
+
 ## Field mappings in the source
 
 | Group | Claude field/label | QE API field/path |
@@ -72,6 +90,9 @@ The previously inspected `Claude Task 2 Checklist-R2` tab exposed `Actual Melind
 | Product information | Price | `price` |
 | Product information | Compare At Price | `compare_at_price` |
 | Product information | Cost Per Item | `cost_per_item` |
+| Product information | Size | `size` |
+| Product information | Tag name | `tags[].name` |
+| Product information | Top sales | `top_sales` |
 | Sales | Gross Sales | `gross_sales` |
 | Sales | Gross Quantity | `gross_quantity` |
 | Sales | % Of Revenue | `percent_of_revenue` |
@@ -119,7 +140,7 @@ The previously inspected `Claude Task 2 Checklist-R2` tab exposed `Actual Melind
 | Inventory | Lead Time | `lead_time_days` |
 | Inventory | Days Of Stock | `days_of_stock_on_hand` |
 | *(blank in source)* | FC Transfer Quantity | `in_transit_stock` |
-| *(source row is malformed)* | *(Claude field missing)* | `collections[].name` |
+| *(blank in source)* | Collection | `collections[].name` |
 
 ## Fields with no QE API mapping in the source
 
@@ -131,13 +152,16 @@ The following Claude labels appear in the source with the QE API cell blank. Do 
 - Trend
 - Turnover Rate
 - Position
+- Next Arrival Date
+- Next Arrival Quantity
+- Balance
 
 ## Incomplete or inconsistent source rows
 
 - Several rows have a blank `Group` value. They are shown above as `*(blank in source)*`; the group has not been inferred.
 - Some `ID` cells are repeated or contain values that do not follow the apparent sequence. Treat `ID` as source metadata, not as a unique field key. Identify mappings by the Claude label and QE API field/path.
-- The row containing `collections[].name` has no Claude label; a nearby cell contains the note `Filed không có trong config column`, and subsequent rows contain numeric values without field labels. These rows are not usable as confirmed field mappings.
-- Rows 70–72 contain only numeric values in the `ID`/`Group` area and no Claude label or QE API path. They are not usable as field mappings.
+- `Collection` → `collections[].name` is present as a labeled mapping (the source Group is blank); do not treat it as an unlabeled malformed row.
+- Current rows 77–107 contain QE API paths without a Claude field label. They are API-only catalog fields, not confirmed Claude-to-QE mappings. The paths are: `row_id`, `h_key`, `product_h_key`, `parent_id`, `identifier_value`, `categories[].h_key`, `collections[].h_key`, `tags[].h_key`, `vendors[].b_key`, `vendors[].h_key`, `product_title`, `name`, `season`, `image`, `inventory_management`, `is_newly_launched`, `shipping_value`, `target_coverage_days`, `forecasting_range`, `opportunity_cost`, `reorder_opportunity_cost`, `is_ad_inefficient`, `is_understock`, `shipment_lot_code`, `shipment_expire_date`, `shipment_detail`, `is_inventory_tracking`, `adjusted_quantity`, `forecast_index`, `moq`, and `cumulative_percent_of_revenue`. Some are tagged `Row` or `Total` for prompt authoring, but the Claude field is blank; do not use the tag as a substitute mapping.
 - The source does not define type-specific normalization, percentage/ratio representation, rounding, units, date/time handling, null behavior, or a general numeric tolerance. Resolve these per approved test case or owner decision; do not create a tolerance from examples in the workbook.
 
 ## Comparison procedure
