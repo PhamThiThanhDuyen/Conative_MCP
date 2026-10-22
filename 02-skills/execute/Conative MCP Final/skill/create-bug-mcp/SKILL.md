@@ -17,7 +17,7 @@ Prepare a complete bug report using the exact sections and fields below. Use the
 
 Use this format:
 
-`[MCP][<org name>] - <short description of the issue>`
+`[MCP][<org name>] - Lệch data <name field>  ở Claude <thấp hơn hoặc cao hơn> so với QE`
 
 The description should identify the discrepancy, for example: `Lệch data <name field> ở Claude thấp hơn hoặc cao hơn so với QE`.
 
@@ -35,6 +35,7 @@ Include an **Thông tin** section with:
 - `org`: organization name.
 - `from source`: source name.
 - `prompt`: exact prompt used for the check.
+- `timerange`: start and end dates from the prompt
 - `Thời gian kiểm tra`: date and time when the check was performed, including timezone when known.
 - `QE`: QE request details, preferably the request body as submitted. Show each available field:
   - `entity_grain`
@@ -91,5 +92,14 @@ Before submitting or handing off the report:
 5. Mark missing evidence plainly; do not fabricate or silently omit it.
 6. Keep the report in Vietnamese unless the user asks for another language.
 7. Verify the editor shows Heading 3 blocks, bulleted content and a QE JSON code snippet before submitting.
+
+## Google Sheet follow-up after bug creation
+
+After OP confirms the bug was created successfully:
+
+- Open the Google Sheet used for the test run and locate the exact test-case row for the same organization and channel.
+- Update that row's `Note <org> - <channel>` cell (for example, `Note Chanluu - Shopify`) with the created bug's ID
+- Preserve the existing execution result, note format, and evidence. Append the bug reference to the current note; do not replace the cell contents or modify other test-case rows.
+- Verify that the updated cell is saved. Do not add a bug reference if ticket creation failed or its result is uncertain.
 
 This skill prepares report content. Create the issue in OP only when the user explicitly requests submission and the required OP access is available.

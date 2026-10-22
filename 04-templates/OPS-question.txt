@@ -1,0 +1,2 @@
+1. Dùng skill /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/OPS/demo-summary-status/references/graphqlv2-sales-by-variant-status-reference.md và tiến hành ghi kết quả vào cột <column name>
+2. Dùng skill /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/OPS/assets/create-bug để tiến hành tạo bug cho org DEMO 7 trong mục ""Activity"" của ticket

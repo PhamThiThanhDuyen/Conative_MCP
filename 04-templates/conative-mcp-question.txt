@@ -1,0 +1,4 @@
+1. đọc project chi tiết và không bỏ qua bất kỳ thông tin nào  /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Conative MCP Final
+2. dùng tất cả skill, hãy thực thi tất cả test case cho org <org name> có channel <from source> theo flow tuần tự
+run từng test case theo quy trình (claude > QE API > compare và ghi kết qủa mới thực hiện test case kế tiếp)
+Lưu ý nếu TC1 đã connect org <org name> thành công thì testcase kế tiếp không cần disconnect claude đi nữa

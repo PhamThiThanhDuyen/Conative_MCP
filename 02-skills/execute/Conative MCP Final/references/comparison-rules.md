@@ -78,6 +78,7 @@ At the current snapshot, 16 fields have both `Total Prompt = Total` and `Priorit
 |---|---|---|
 | *(blank in source)* | Total count | `pagination.total` |
 | Product information | Variant Title | `variant_title` |
+| Product information | Product Title | `product_title` |
 | Product information | SKU | `sku` |
 | Product information | Product ID | `product_id` |
 | Product information | Variant ID | `variant_id` |
@@ -161,7 +162,7 @@ The following Claude labels appear in the source with the QE API cell blank. Do 
 - Several rows have a blank `Group` value. They are shown above as `*(blank in source)*`; the group has not been inferred.
 - Some `ID` cells are repeated or contain values that do not follow the apparent sequence. Treat `ID` as source metadata, not as a unique field key. Identify mappings by the Claude label and QE API field/path.
 - `Collection` → `collections[].name` is present as a labeled mapping (the source Group is blank); do not treat it as an unlabeled malformed row.
-- Current rows 77–107 contain QE API paths without a Claude field label. They are API-only catalog fields, not confirmed Claude-to-QE mappings. The paths are: `row_id`, `h_key`, `product_h_key`, `parent_id`, `identifier_value`, `categories[].h_key`, `collections[].h_key`, `tags[].h_key`, `vendors[].b_key`, `vendors[].h_key`, `product_title`, `name`, `season`, `image`, `inventory_management`, `is_newly_launched`, `shipping_value`, `target_coverage_days`, `forecasting_range`, `opportunity_cost`, `reorder_opportunity_cost`, `is_ad_inefficient`, `is_understock`, `shipment_lot_code`, `shipment_expire_date`, `shipment_detail`, `is_inventory_tracking`, `adjusted_quantity`, `forecast_index`, `moq`, and `cumulative_percent_of_revenue`. Some are tagged `Row` or `Total` for prompt authoring, but the Claude field is blank; do not use the tag as a substitute mapping.
+- Current rows 77–107 contain QE API paths without a Claude field label. They are API-only catalog fields, not confirmed Claude-to-QE mappings. The paths are: `row_id`, `h_key`, `product_h_key`, `parent_id`, `identifier_value`, `categories[].h_key`, `collections[].h_key`, `tags[].h_key`, `vendors[].b_key`, `vendors[].h_key`, `name`, `season`, `image`, `inventory_management`, `is_newly_launched`, `shipping_value`, `target_coverage_days`, `forecasting_range`, `opportunity_cost`, `reorder_opportunity_cost`, `is_ad_inefficient`, `is_understock`, `shipment_lot_code`, `shipment_expire_date`, `shipment_detail`, `is_inventory_tracking`, `adjusted_quantity`, `forecast_index`, `moq`, and `cumulative_percent_of_revenue`. Some are tagged `Row` or `Total` for prompt authoring, but the Claude field is blank; do not use the tag as a substitute mapping.
 - The source does not define type-specific normalization, percentage/ratio representation, rounding, units, date/time handling, null behavior, or a general numeric tolerance. Resolve these per approved test case or owner decision; do not create a tolerance from examples in the workbook.
 
 ## Comparison procedure
