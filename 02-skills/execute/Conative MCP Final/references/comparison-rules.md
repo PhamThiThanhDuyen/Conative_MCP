@@ -2,13 +2,13 @@
 
 ## Source and scope
 
-Field mappings and prompt classifications below were read from the `Field compare` tab (columns A:H, header row 2 and data rows 3:107) of the source workbook [`MCP_Task2_DataCoverage_Checklist.xlsx`](https://docs.google.com/spreadsheets/d/1fNGCNLP8LXFuNxhuzPbXGQEu1uanFLeO/edit?usp=sharing). The headers are `ID`, `Group`, `Claude`, `QE API`, `Total Prompt`, `Row Prompt`, `Priority`, and `Prompt`.
+Field mappings and prompt classifications are maintained in the canonical native Google Sheet ID `1-z8rvDg6C6v9irJjH7njGoudkJu57pEnzRkNX5gv3xQ`, tab `Field compare` ([open it](https://docs.google.com/spreadsheets/d/1-z8rvDg6C6v9irJjH7njGoudkJu57pEnzRkNX5gv3xQ/edit)). Read current rows from that tab before relying on a mapping. Its current headers include `ID`, `Group`, `Claude`, `QE API`, `Total Prompt`, `Row Prompt`, `Priority`, and `Prompt`.
 
 This table is a field-name mapping reference. It does not, by itself, approve business meaning, formulas, expected values, or a tolerance. Confirm the requested field and scope from the selected test case and use the existing execution guidance in `../../Conative MCP/execute-compare-data-conative-MCP-with-QE.md`.
 
 ## Organization, channel, and source mappings
 
-The following values were read from the workbook's `Source` tab, columns A:D, rows 1:29. One organization may have multiple channel/source rows; use the row matching the testcase scope. Preserve the source spelling and `from_source` value when configuring or interpreting the QE API request.
+The following values were read from the canonical Google Sheet's `Source` tab, columns A:D, rows 1:29. Recheck the exact row in that tab for the selected organization/channel before use. One organization may have multiple channel/source rows; use the row matching the testcase scope. Preserve the source spelling and `from_source` value when configuring or interpreting the QE API request.
 
 ### Approximate website organization names
 
@@ -52,7 +52,7 @@ Use the workflow organization as the canonical label for comparison and spreadsh
 | Milanova | Low | Shopify | `shopify` |
 | Uncle Todd | Low | AMZ | `amazon` |
 
-The previously inspected `Claude Task 2 Checklist-R2` tab exposed `Actual Melinda` and `Note Melinda`; it did not establish equivalent headers for other organizations or verify the channel-specific Note and Version headers now required by the result workflow. Do not assume those columns exist or write to another organization's cells; resolve the live workbook/tab and authorized `Actual <org>`, `Note <org> - <channel>`, and `Version <org> - <channel>` columns before recording a case.
+In the canonical `Claude Task 2 Checklist-R2` tab, the live header row includes `Actual Chanluu - Shopify`, `Note Chanluu - Shopify`, and `Version Chanluu - Shopify`. Resolve the exact complete organization/channel headers from the live tab before each write; do not assume another organization's columns.
 
 ## Prompt coverage and priority tags
 

@@ -23,7 +23,7 @@
 - Unmapped expected field(s):
 - Scope/context (dataset, grain, channel/source, filters, date range, timezone):
 - Comparison rule/reference:
-- Evidence references:
+- Evidence references: N/A unless the user requests bug creation; then include approved Claude/QE screenshot references.
 - Root cause (evidence-based; otherwise `Unknown` for a failure):
 - Blocker/limitation:
 
@@ -71,10 +71,10 @@ otherwise leave status and Note cells unchanged and report the limitation.
 
 ## Google Sheet Version column
 
-Whenever recording a result in Google Sheets, also write the execution date to
-the exact `Version <org> - <channel>` column for the same testcase row. Format
-the date in English as `MMM d, yyyy` (for example, `Oct 16, 2026`) using the
-execution date in the run's stated timezone. Verify that the complete header
+Whenever recording a result in Google Sheets, also write the execution date
+and time to the exact `Version <org> - <channel>` column for the same testcase
+row. Format it as `MMM d, yyyy hh:mm AM/PM` in Asia/Ho_Chi_Minh local time
+(for example, `Oct 22, 2026 04:09 PM`). Verify that the complete header
 matches both organization and channel and that the target cell is authorized for
 update. Treat the status, Note, and Version date as one result update: if any
 required header or write permission is missing or ambiguous, do not write a
@@ -87,4 +87,4 @@ workbook saved.
 - Record scope details and visible warnings when available.
 - Do not include credentials, tokens, cookies, session state, or unnecessary
   customer data.
-- Store evidence only in an approved, access-controlled destination.
+- Save screenshots only when the user requests bug creation; otherwise use N/A for evidence references. Store requested evidence only in an approved, access-controlled destination.

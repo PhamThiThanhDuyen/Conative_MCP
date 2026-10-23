@@ -1,47 +1,49 @@
-# Round 2 Test Case Sheet Contract
+# Round 2 Google Sheet Contract
 
-## Source inspected
+## Canonical source and tabs
 
-- I allow access and open browser-in-app this google sheet https://docs.google.com/spreadsheets/d/1fNGCNLP8LXFuNxhuzPbXGQEu1uanFLeO/edit?gid=2109707194#gid=2109707194 (`Claude Task 2 Checklist-R2` sheet)
+- Use only the native Google Sheet [MCP_Conative_Task2_DataCoverage_Checklist_Final](https://docs.google.com/spreadsheets/d/1-z8rvDg6C6v9irJjH7njGoudkJu57pEnzRkNX5gv3xQ/edit), spreadsheet ID `1-z8rvDg6C6v9irJjH7njGoudkJu57pEnzRkNX5gv3xQ`.
+- This is the sole testcase and result workbook until the user explicitly replaces it. Do not use XLSX/XLSM copies, including older exports or similarly named workbooks.
+- Resolve workbook metadata before reading or writing. Use exact tab names: `Claude Task 2 Checklist-R2` for testcase prompts and result cells; `Field compare` for field mappings/status aggregation; `Source` for organization/channel/source mappings. These tabs were verified in the canonical file.
+- Read testcase rows only from `Claude Task 2 Checklist-R2`. Match the exact `TC ID` once and read the complete row contract, including Prompt and Expected result. Write completed results to that testcase's organization/channel-specific columns on the same tab.
+- Use `Field compare` and `Source` only for their stated mapping purposes. Re-read current values from this same workbook when the relevant mapping or source scope is needed.
 
-## Column map
+## Observed header and result columns
 
-Headers are on row 1. The sheet's note columns are scoped by both organization and channel; use the exact header text and do not depend on column position when headers are present. The observed A:O map below is the previously inspected layout and may be stale after the sheet structure update.
+Headers are on row 1 of `Claude Task 2 Checklist-R2`. The current live header row includes:
 
 | Column | Exact header | Contract |
 |---|---|---|
-| A | `TC ID` | Testcase key. Read-only; select a row by exact, unique ID. |
-| B | `Nhóm` | Testcase group/category. Read-only. |
-| C | `Channel` | Channel/scope value. Read-only. |
-| D | `Test Case` | Short testcase description. Read-only. |
-| E | `Điều kiện trước` | Preconditions, including any organization context. Read-only. |
-| F | `Prompt` | Prompt to send to Claude. Read the full cell value exactly, including line breaks or repeated prompts; do not rewrite or infer missing text. |
-| G | `Steps` | Test instructions. Read-only. |
-| H | `Expected result` | Expected behavior/result. Read-only. |
-| I | `Priority` | Test priority. Read-only. |
-| J | `Actual Melinda` | Organization-specific status output for `Melinda` under the user's result-update workflow. Write only the applicable `PASS`, `FAIL`, `PARTIAL`, or `BLOCKED` token when live cell validation/workbook contract permits it. Do not assume this column exists for another organization. |
-| K | `Note Melinda` | Previously observed organization-level note field. It does not identify a channel and is not a valid destination when the sheet provides a channel-specific note header. |
-| L | `Evidence ChatGPT` | ChatGPT evidence reference. Read-only unless separately authorized. |
-| M | `Evidence Claude` | Claude evidence reference. Read-only unless separately authorized. |
-| N | `So sánh / Kết luận` | Comparison/conclusion field. This is not a separately named status column. Read-only unless separately authorized. |
-| O | `Bug ID` | Bug reference. Read-only unless separately authorized. |
+| A | `TC ID` | Exact testcase key; read-only. Select one unique row. |
+| B | `Nhóm` | Testcase group/category; read-only. |
+| C | `Channel` | Channel/scope; read-only. |
+| D | `Test Case` | Short testcase description; read-only. |
+| E | `Điều kiện trước` | Preconditions; read-only. |
+| F | `Prompt` | Full prompt to send verbatim; read-only. |
+| G | `Steps` | Test instructions; read-only. |
+| H | `Expected result` | Comparison contract; read-only. |
+| I | `Priority` | Priority; read-only. |
+| O | `Actual Chanluu - Shopify` | Observed status destination for Chanluu/Shopify. |
+| P | `Note Chanluu - Shopify` | Observed detailed comparison note for Chanluu/Shopify. |
+| Q | `Version Chanluu - Shopify` | Observed run date/time destination for Chanluu/Shopify. |
+| R | `Evidence ChatGPT` | Do not write unless separately authorized. |
+| S | `Evidence Claude` | Do not write unless separately authorized. |
+| T | `So sánh / Kết luận` | Do not write unless separately authorized. |
+| U | `Bug ID` | Do not write unless separately authorized. |
 
-The inspected sheet does not have a column explicitly named `QE API result`, `Claude result`, or `Status`. For the user's result-update workflow, `Actual <org name>` is the status destination. Note headers follow `Note <org name> - <channel name>` and carry comparison details for that specific organization-channel pair. Version headers must match `Version <org name> - <channel name>` and store the execution date. A single organization may have multiple channels, so never write to a generic organization-only Note or Version column when channel-specific headers are present. `Note Melinda` above records the prior observed structure only; verify current live headers before writing and select exact Note and Version headers whose organization and channel both match the selected testcase. Match complete header strings, including spelling and spacing; do not use partial matches. If a required exact header is absent or duplicated, stop and clarify rather than choosing a nearby column. The comparison contract defines `PASS`, `FAIL`, `PARTIAL`, and `BLOCKED`; live cell validation/allowed values were not verified during the prior inspection. Confirm that the selected status cell permits the applicable token before writing. Do not infer channel from organization: take it from the selected testcase's `Channel` cell and confirm its organization context from the testcase/preconditions or user instruction.
+The header read also showed Melinda Shopify and Nuorder Actual/Note/Version columns. For any organization/channel, resolve the exact complete headers from the live header row; never assume fixed positions or write to a nearby organization/channel's columns. The Chanluu/Shopify headers above are observed in this file, but verify them and live validation before each result update.
 
-## Observed testcase coverage
+## Read, write, and version rules
 
-The inspected tab included testcase IDs `T2-COV-001` through `T2-COV-008` and `T2-COV-026`. Their categories cover product/variant aggregate and top-list prompts, no-data and unsupported-field cases, completeness/repeatability checks, and a brand breakdown case. This is an observed sample, not a promise that these are the only rows or IDs in the workbook.
-
-For testcases `T2-COV-001` through `T2-COV-008`, the prompts are in column F. `T2-COV-008` has two repeated requests in its prompt cell; preserve and execute both as written when that testcase is selected. `T2-COV-026` includes organization context in its precondition and a comparison prompt; use its full prompt cell and respect that row's stated context.
-
-## Row selection and use
-
-- Ask the user for the exact testcase ID when it has not already been selected. Match it in `TC ID`; if it is missing or not unique, stop and clarify.
-- Read the selected row's `Prompt` (F), `Channel` (C), `Điều kiện trước` (E), and any other needed case instructions before running it. Prompt-specific values take precedence over assumptions; never invent dates, channels, organizations, or metrics.
-- Keep the workbook read-only when using it as an input to Claude or Postman. A request to execute a testcase does not by itself authorize editing the workbook; use the result-update Skill only when the user requests recording a completed comparison.
-- Before updating, verify the exact testcase row, organization, `Channel` value, current contents, allowed status tokens, write scope, and exact `Actual <org>`, `Note <org> - <channel>`, and `Version <org> - <channel>` headers. Write the status, canonical Note, and execution date together. Format the Version date as `MMM d, yyyy` (example: `Oct 16, 2026`) using the run's stated timezone. Treat these as one update: if any required header or write permission is missing or ambiguous, do not write a partial result. Do not overwrite an existing result without explicit rerun/update direction.
-- The workbook's owner, approved writable columns, allowed status tokens, and evidence-storage policy were not established by this inspection and remain unconfirmed.
+- Read `TC ID`, `Channel`, `Test Case`, `Điều kiện trước`, the full `Prompt`, `Steps`, `Expected result`, and the selected organization's current result cells before execution.
+- A user-provided testcase ID, organization, and execution request authorize testcase intake. Do not ask the user to repeat row data already present in the canonical Sheet.
+- Before writing, verify the exact row, organization/channel, current contents, exact Actual/Note/Version headers, write scope, and live validation. Write the three result cells together. If any required header or permission is missing/ambiguous, write none.
+- Use only status tokens allowed by the live cell validation. Do not overwrite existing results unless the user explicitly requested rerun/update.
+- Each Note line begins `- ` and follows `assets/comparison-report-template.md`. Do not imply a completed comparison when blocked.
+- Format Version as `MMM d, yyyy hh:mm AM/PM`, using Asia/Ho_Chi_Minh local execution time (example: `Oct 22, 2026 04:09 PM`).
+- Read the three cells back and confirm the Google Sheet saved before moving to the next testcase.
+- Save evidence screenshots only when the user requests bug creation. Then follow the bug workflow; routine test execution does not create screenshot files.
 
 ## Credential and data handling
 
-Never write credentials, tokens, cookies, or session state into cells, notes, evidence links, or prompts. Keep only the minimum project data needed for the approved workflow and follow `../../../../03-knowledge/governance/information-security-policy.md`.
+Never write credentials, tokens, cookies, or session state into cells, notes, evidence links, or prompts. Follow `../../../../03-knowledge/governance/information-security-policy.md`.
