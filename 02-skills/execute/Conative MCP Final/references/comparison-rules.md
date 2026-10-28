@@ -174,6 +174,10 @@ The following Claude labels appear in the source with the QE API cell blank. Do 
 5. For list/object results, compare the requested mapped fields for each corresponding item. Use a stable key specified by the testcase or approved rule; if no matching key is specified, do not assume list order establishes item identity.
 6. Record source values, mapped field names/paths, observed scope, difference, and status in the run report. Do not claim a root cause unless evidence supports it.
 
+### Product-title quotation mark equivalence
+
+When comparing the mapped `Product Title` / `product_title` field only, treat typographic quotation marks as equivalent to their straight ASCII counterparts: `‘` and `’` match `'`, and `“` and `”` match `"`. This narrowly scoped equivalence allows Claude and QE product titles to compare equal when their only difference is curly-versus-straight quote typography. Do not apply this normalization to other text fields, identifiers, punctuation, spacing, or any other character; all remaining title characters must match exactly. Keep the original Claude and QE strings in the evidence and Note when a title passes through this equivalence.
+
 ## Status interpretation
 
 Use the exact status tokens and cells allowed by the spreadsheet contract and selected test case. Under the existing comparison workflow, `PASS` means both values are available and satisfy the approved comparison rule; `FAIL` means both values are available and differ. If a value is missing, a request fails, the field is unmapped, or the comparison rule is unresolved, do not report `PASS` or `FAIL`; use an allowed blocked/review status or leave the result unchanged and report the blocker.
