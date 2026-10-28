@@ -38,7 +38,7 @@ changes unless the user explicitly requests that change.
    selected organization is absent, different, or cannot be verified. Do not
    expose or retain any access token returned by this call.
 
-3. **Set runtime inputs and run the matching data request.** Read the exact
+3. **Set runtime inputs and run the matching data request.** Before preparing QE, read the live ` Timezone` tab using [`references/organization-timezones.md`](references/organization-timezones.md). Match the verified selected organization to one unique row and obtain its exact IANA `<timezone>` value. If the row is missing, ambiguous, blank, speculative, or contains only a display label, verify the current organization setting with an accountable source; stop before QE if unresolved. Read the exact
    testcase prompt and choose the request by the requested entity grain:
    `productList` for product(s), `variantList` for variant(s). If the grain is
    ambiguous, stop and clarify. Set the following values in the active
@@ -46,12 +46,13 @@ changes unless the user explicitly requests that change.
    - `from_source`: use the exact organization/channel mapping in
      `references/comparison-rules.md` (for example, Shopify is `shopify` and
      Nuorder is `nu-order`). Do not infer a source from organization name alone.
+   - `timezone`: set the QE API parameter to the verified organization-specific `<timezone>` from the live ` Timezone` tab, using an unsaved request-local override. Inspect the outgoing request and confirm this exact value before sending. Never rely on the saved request, environment, or workbook default timezone.
    - `from_date` and `to_date`: derive from the prompt as `YYYY-MM-DD`, using the
-     request's configured timezone and existing end-date inclusivity convention.
+     verified organization timezone and existing end-date inclusivity convention.
      Resolve relative periods using the execution date and record the resolved
      boundaries. Stop if the period or timezone cannot be resolved.
    - `forecast_time`: when the prompt requests `Next <x>-Day Sales (AI)`, set
-     `from` to today's execution date and `to` to that date plus `x` calendar days,
+     `from` to today's date in the verified organization timezone and `to` to that date plus `x` calendar days,
      both as `YYYY-MM-DD`. For example, Next 90-Day Sales (AI) uses today through
      today + 90 days. Do not reuse the prompt's historical sales period for this
      forecast window. Resolve and verify both dates before sending the QE request.
@@ -74,7 +75,7 @@ changes unless the user explicitly requests that change.
    the prompt explicitly asks for active status. Resolve `from_source` using the
    exact approved mapping value (for example, `shopify`); do not pass a UI/display
    label such as `Shopify Conative`. Override the environment values for source,
-   dates, and sorting for this run only. Do not save environment or collection
+   dates, timezone, and sorting for this run only. Do not save environment or collection
    changes. Do not stop merely because the saved template contains an active
    filter or a display-label source; apply this one-run overlay. Stop only if the
    remaining required scope cannot be expressed within these rules or the request
