@@ -174,6 +174,15 @@ The following Claude labels appear in the source with the QE API cell blank. Do 
 5. For list/object results, compare the requested mapped fields for each corresponding item. Use a stable key specified by the testcase or approved rule; if no matching key is specified, do not assume list order establishes item identity.
 6. Record source values, mapped field names/paths, observed scope, difference, and status in the run report. Do not claim a root cause unless evidence supports it.
 
+### Zero values in product/variant row and top-N comparisons
+
+Apply these checks to the same product scope, requested numeric field, and result window on Claude and QE. Use explicit numeric zero. A null, blank, missing value, or row outside the requested window provides no evidence of zero.
+
+- **Claude omits zero-valued products/variant.** When Claude returns fewer than the requested N products and explicitly says it omitted products because the requested field was zero, match the returned products to QE by stable key and compare their mapped values. Count the omitted zero-valued products reported by Claude and confirm the count accounts for the shortfall (N minus the returned count). If Claude gives no count, use the shortfall only when its response explicitly accounts for every missing slot as a zero-valued product. In the corresponding QE window, verify that each remaining unmatched product has zero for that same field and that its count equals Claude's omitted-zero count. This satisfies the requested count condition when the returned products and other expected checks also pass.
+- **Claude returns zero for every product/variant.** When every product returned by Claude has zero for a mapped field, inspect that field for every product in the corresponding QE result window. Verify item identity and that every QE value is explicitly zero. If so, the field comparison passes, and the testcase can receive PASS when all other expected checks pass.
+
+Record the requested count, matched count, Claude omitted-zero count and its basis when applicable, and QE zero count in the comparison Note. A demonstrated value or count mismatch is FAIL. If the QE window, required values, or Claude's omitted-zero count cannot be verified, apply BLOCKED unless a demonstrated failure already establishes FAIL.
+
 ### Product-title quotation mark equivalence
 
 When comparing the mapped `Product Title` / `product_title` field only, treat typographic quotation marks as equivalent to their straight ASCII counterparts: `‘` and `’` match `'`, and `“` and `”` match `"`. This narrowly scoped equivalence allows Claude and QE product titles to compare equal when their only difference is curly-versus-straight quote typography. Do not apply this normalization to other text fields, identifiers, punctuation, spacing, or any other character; all remaining title characters must match exactly. Keep the original Claude and QE strings in the evidence and Note when a title passes through this equivalence.
