@@ -33,6 +33,13 @@ Phải đọc lại dữ liệu live mỗi lần chạy, không dùng vị trí 
 | Query Variant | Sales_by_variant |
 | Folder / request Product | Summary_Product / Summary_Product |
 | Query Product | Sales_by_product |
+| Folder List Variant | List_Variant |
+| API List Variant đầu tiên | Variant_List_Product_Info |
+| Folder List Product | List_Product |
+| Query List Variant / Product | Sales_by_variant / Sales_by_product |
+| Limit mỗi trang List | 20 |
+| Offset mỗi API List | 0, 20, 40, 60, 80 |
+| Mục tiêu mỗi API List | 100 item |
 | Biến token cần kiểm tra | accessToken_Mizmooz |
 | Input query | from_date, to_date, from_source |
 
@@ -43,9 +50,23 @@ hoặc chạy API khi xây bộ tài liệu này.
 
 ## Phạm vi
 
-Chỉ đọc các API Summary và ghi kết quả kiểm tra vào hai tab được chỉ định.
-Giữ nguyên script, công thức so sánh, query fields và các filter ngoài input
-được yêu cầu. Không áp dụng quy tắc của Conative MCP Round 2 như chạy Claude,
+Flow tổng mặc định: mỗi org/source chạy Summary Variant → ghi và xác minh →
+List Variant → ghi và xác minh → Summary Product → ghi và xác minh →
+List Product → ghi và xác minh. Xong phạm vi được yêu cầu của org mới chuyển org.
+Nếu người dùng chỉ yêu cầu một phần thì chỉ chạy phần đó, theo thứ tự tương đối.
+Mỗi tab có cột Summary và List riêng cho từng org/source/timerange/run.
+
+Đọc API Summary hoặc List và ghi kết quả vào hai tab được chỉ định.
+Summary giữ nguyên script. List được cập nhật offset trong query và script
+để hai phía kiểm tra cùng trang; không đổi logic so sánh, tolerance, query fields
+hoặc filter khác. Chỉ sửa tạm cho lần chạy, không Save collection.
+
+Danh sách các API còn lại phải đọc từ folder live khi thực thi; chưa có tên
+được xác minh thì không tự đặt tên. Với List_Variant, bắt đầu bằng
+`Variant_List_Product_Info`, sau đó theo thứ tự folder; với List_Product,
+theo thứ tự folder. Không tự tạo request nếu thiếu request/query.
+
+Không áp dụng quy tắc của Conative MCP Round 2 như chạy Claude,
 field mapping QE, xóa filter active hoặc tự đặt forecast window vào flow OPS.
 
 Không thay timezone của API nếu người dùng chưa yêu cầu. Nếu query có timezone

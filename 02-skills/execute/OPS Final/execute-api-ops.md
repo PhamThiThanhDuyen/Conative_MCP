@@ -1,7 +1,17 @@
 # Chạy API Summary trên Postman
 
+Với List, dùng [execute-api-list.md](execute-api-list.md). Các bước chọn
+workspace, collection, environment, Login và Choose_Org ở phần 1–2 dưới đây
+được dùng chung, không thay đổi.
+
 Đọc [cấu hình](references/run-settings.md) và nhận đủ input trước khi Send.
 Dùng request và script đã có; không tự viết lại logic so sánh.
+
+Trong flow tổng [FLOW.md](FLOW.md), thứ tự là Summary Variant → ghi và đọc
+lại Sheet → List Variant → ghi và đọc lại Sheet → Summary Product → ghi và
+đọc lại Sheet → List Product → ghi và đọc lại Sheet → org tiếp theo.
+Tài liệu này mô tả thao tác Summary; không tự chuyển sang Product ngay sau
+Summary Variant khi đang chạy flow tổng.
 
 ## 1. Mở Postman và chọn môi trường
 
@@ -69,7 +79,10 @@ request phụ lỗi hoặc chưa hoàn tất mới khiến kết quả chưa đ�
 
 ## 4. Chạy Summary Product
 
-Sau khi Variant đã lưu xong, mở folder `Summary_Product`, request
+Trong flow tổng, chỉ sau khi cả Summary Variant và List Variant đã lưu,
+đọc lại xong mới chạy bước này. Nếu chỉ được yêu cầu Summary thì sau khi
+Summary Variant lưu xong có thể tiếp tục Summary Product.
+Mở folder `Summary_Product`, request
 `Summary_Product`, query `Sales_by_product`. Lặp lại phần 3 với cùng
 organization, from_source, from_date, to_date. Kiểm tra token và input ở
 request Product, không giả định chúng giống request Variant.
@@ -77,6 +90,9 @@ request Product, không giả định chúng giống request Variant.
 Không Login hoặc Choose_Org lại khi session vẫn đúng và còn hiệu lực.
 Token hết hạn hoặc organization thay đổi thì xử lý đúng bước auth, rồi kiểm tra
 lại input trước khi tiếp tục. Không dùng kết quả Variant làm kết quả Product.
+
+Ghi và xác minh Summary Product xong thì quay về flow tổng để chạy List
+Product. Chỉ chuyển org sau khi cả bốn chặng đã hoàn tất và đọc lại Sheet.
 
 ## 5. Nếu không thực thi được
 

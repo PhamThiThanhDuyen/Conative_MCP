@@ -1,0 +1,52 @@
+OPS Final - List update 2026-11-08
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/OPS Final/SKILL.md: 472 words, 52 lines
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/OPS Final/skill/record-ops-summary-results/SKILL.md: 299 words, 30 lines
+Summary: 2 skills, 0 warning(s), 0 failure(s)
+
+['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/duyenpham/Documents/Work/Automation/Conative_MCP/05-scripts/validate_skill_size.py', '/private/tmp/ops-list-update/OPS Final', '/private/tmp/ops-list-update/OPS Final/skill/record-ops-summary-results', '--fail-on-warning']
+[PASS] /private/tmp/ops-list-update/OPS Final/SKILL.md: 581 words, 61 lines
+[PASS] /private/tmp/ops-list-update/OPS Final/skill/record-ops-summary-results/SKILL.md: 353 words, 36 lines
+Summary: 2 skills, 0 warning(s), 0 failure(s)
+
+Exit: 0
+['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/duyenpham/.codex/skills/.system/skill-creator/scripts/quick_validate.py', '/private/tmp/ops-list-update/OPS Final']
+Skill is valid!
+
+Exit: 0
+['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/duyenpham/.codex/skills/.system/skill-creator/scripts/quick_validate.py', '/private/tmp/ops-list-update/OPS Final/skill/record-ops-summary-results']
+Skill is valid!
+
+Exit: 0
+['/Library/Developer/CommandLineTools/usr/bin/python3', '-m', 'unittest', 'discover', '-s', 'scripts', '-p', 'test_*.py', '-v']
+test_final_needs_all_folder_apis (test_build_list_result_plan.ListPlanTests) ... ok
+test_later_green_preserves_failed_and_final_missing_is_na (test_build_list_result_plan.ListPlanTests) ... ok
+test_missing_page_or_failed_runtime_blocks (test_build_list_result_plan.ListPlanTests) ... ok
+test_partial_has_no_na_and_keeps_early_red (test_build_list_result_plan.ListPlanTests) ... ok
+test_product_plan_uses_product_rows (test_build_list_result_plan.ListPlanTests) ... ok
+test_completed_run_maps_pass_fail_missing_and_preserves_note (test_build_result_plan.ResultPlanTests) ... ok
+test_duplicate_row_or_name_is_blocked (test_build_result_plan.ResultPlanTests) ... ok
+test_empty_console_is_blocked (test_build_result_plan.ResultPlanTests) ... ok
+test_failed_requires_note (test_build_result_plan.ResultPlanTests) ... ok
+test_incomplete_run_never_becomes_all_na (test_build_result_plan.ResultPlanTests) ... ok
+test_mixed_results_need_verified_subchecks (test_build_result_plan.ResultPlanTests) ... ok
+test_no_write_to_other_tab_or_status (test_build_result_plan.ResultPlanTests) ... ok
+test_product_has_its_own_metric_rows (test_build_result_plan.ResultPlanTests) ... ok
+test_unknown_metric_is_not_silently_na (test_build_result_plan.ResultPlanTests) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.001s
+
+OK
+
+Exit: 0
+Partial List: first API complete, early red retained, later APIs pending, no N/A: PASS
+Normal List CLI: PASS; early red survives green in subsequent API; final N/A only after both APIs
+Đã tạo kế hoạch List: {'Passed': 1, 'Failed': 1, 'N/A': 1}. Chưa ghi Sheet.
+
+Failure CLI: PASS; mismatched query/script offset rejected; no plan created
+Chưa tạo kế hoạch List: Offset query và script chưa khớp
+
+Regression check: auth sections, dropdown instructions, Summary helper/tests unchanged: PASS
+Local links: PASS (repository-policy links resolved at final location)
+Limited credential-pattern scan: PASS
+No live API run; no Google Sheet edits; local skill update only.

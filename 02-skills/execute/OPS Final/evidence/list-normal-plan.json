@@ -1,0 +1,34 @@
+{
+  "sheet_name": "Sales_by_variant",
+  "cells": [
+    {
+      "row": 3,
+      "metric": "Variant Title",
+      "value": "Failed",
+      "note": "API: List_Variant/Variant_List_Product_Info | offset: 20\n❌ Test giả lập: sai title"
+    },
+    {
+      "row": 24,
+      "metric": "Total Sales",
+      "value": "Passed",
+      "note": null
+    },
+    {
+      "row": 51,
+      "metric": "Ad spend",
+      "value": "N/A",
+      "note": null
+    }
+  ],
+  "counts": {
+    "Passed": 1,
+    "Failed": 1,
+    "N/A": 1
+  },
+  "mode": "List",
+  "finalize": true,
+  "completed_requests": [
+    "List_Variant/Variant_List_Product_Info",
+    "List_Variant/Test_Sales"
+  ]
+}

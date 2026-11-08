@@ -1,126 +1,158 @@
-# Flow OPS Summary
+# Flow tổng OPS — Summary và List
 
-Mục tiêu: chạy API Summary, dùng kết quả kiểm tra có sẵn trong Postman và ghi
-vào Google Sheet. Luôn làm xong Variant trước khi chuyển sang Product.
+Chạy xong từng org rồi mới sang org tiếp theo. Trong mỗi org/source, làm đủ
+Summary và List của Variant trước, sau đó mới làm tương tự cho Product.
 
 ```text
-Đọc Google Sheet
+Đọc Sheet → nhận danh sách org/source/timerange theo thứ tự
   ↓
-Nhận organization + source + timerange
+Chọn org hiện tại trong Postman → xác minh org và token
   ↓
-Đối chiếu Danh sách org và chuẩn bị cột mới ở hai tab
+Summary Variant → ghi Sheet Sales_by_variant (cột Summary) → đọc lại
   ↓
-Postman: Login → tìm organization ID → Choose_Org
+List Variant, từng API đủ 5 trang → ghi Sheet sau mỗi API (cột List)
+  → xong folder → chốt N/A → đọc lại cả cột
   ↓
-Kiểm tra Authorization và token đã được script truyền
+Summary Product → ghi Sheet Sales_by_product (cột Summary) → đọc lại
   ↓
-Summary_Variant → Sales_by_variant → nhập 3 input → Send
+List Product, từng API đủ 5 trang → ghi Sheet sau mỗi API (cột List)
+  → xong folder → chốt N/A → đọc lại cả cột
   ↓
-Đọc console của lần chạy Variant
+Xác minh bốn chặng của org/source đã hoàn tất
   ↓
-Ghi Sales_by_variant: Passed / Failed + note / N/A → đọc lại
+Org còn source được yêu cầu? → lặp bốn chặng cho source đó
   ↓
-Summary_Product → Sales_by_product → nhập cùng 3 input → Send
+Xong org hiện tại → Choose_Org cho org tiếp theo → lặp lại
   ↓
-Đọc console của lần chạy Product
-  ↓
-Ghi Sales_by_product: Passed / Failed + note / N/A → đọc lại
-  ↓
-Báo kết quả hai tab
+Báo kết quả theo org/source và từng chặng
 ```
 
-Ở bất kỳ bước nào bị kẹt: dừng tại bước đó → giữ browser in-app mở → hỏi
-người dùng hỗ trợ → xác minh lại màn hình/input → tiếp tục đúng bước đang dở.
+Mặc định yêu cầu chạy flow tổng là chạy đủ cả Summary và List. Không hỏi lại
+chế độ đã được xác định trong flow này. Nếu người dùng chỉ yêu cầu Summary,
+List hoặc một chặng, chỉ chạy phần đó và giữ thứ tự tương đối ở trên.
 
 ## I. Đọc tài liệu và nhận input
 
 1. Đọc metadata workbook trong [run-settings.md](references/run-settings.md).
-   Xác minh ba tab `Danh sách org`, `Sales_by_variant`, `Sales_by_product` tồn tại.
-2. Đọc header và dữ liệu hiện tại. Trong hai tab kết quả, tìm cột `Name`, `Key`,
-   dòng metric và cột kiểm tra ngoài cùng bên phải.
-3. Nhận organization, source và timerange từ người dùng. Chỉ hỏi phần thiếu;
-   dùng [mẫu input](assets/run-input-template.md) khi cần.
-4. Đối chiếu organization/source với `Danh sách org`. `Channel` là tên hiển thị;
-   `from_source` là giá trị gửi API. Không tự đổi tên organization hoặc source.
-5. Xác minh ngày hợp lệ, from_date không sau to_date. API dùng `YYYY-MM-DD`;
-   header dùng tên tháng tiếng Anh. Chưa rõ ngày tương đối hoặc timezone ảnh
-   hưởng cách hiểu timerange thì hỏi trước khi chạy.
+   Xác minh ba tab `Danh sách org`, `Sales_by_variant`, `Sales_by_product`.
+2. Nhận danh sách org theo thứ tự và source/timerange cho từng org.
+   Nếu cùng scope áp dụng cho cả danh sách, dùng đúng scope đó. Chỉ hỏi phần
+   thiếu; không lấy toàn bộ org/source trong Sheet làm phạm vi mặc định.
+3. Đối chiếu từng cặp org/source với `Danh sách org`. `Channel` là tên hiển thị;
+   `from_source` là giá trị API. Không tự gộp alias hoặc chọn org gần giống.
+4. API dùng ngày `YYYY-MM-DD`; kiểm tra from_date không sau to_date.
+   Nếu ngày tương đối hoặc timezone làm timerange chưa rõ, hỏi trước khi chạy.
+5. Với mỗi org/source, giữ một mốc bắt đầu run theo `Asia/Ho_Chi_Minh` cho
+   header của bốn chặng. Khi resume, giữ lại mốc và cột đã tạo của run đó.
 
-## II. Tạo cột cho lần kiểm tra
+## II. Chuẩn bị cột kết quả
 
-Tạo một cột mới trong mỗi tab kết quả, ngay sau cột kiểm tra cuối của từng tab.
-Hai tab có lịch sử khác nhau nên vị trí cột có thể khác nhau. Không lấy cột
-Variant để áp sang Product. Nếu còn cột khác ở bên phải như `AI Chat`, chèn
-cột thật sự để đẩy cột đó sang phải, không ghi đè.
+Flow đầy đủ tạo hai cột riêng ở mỗi tab: một Summary, một List.
+Tạo cột trước chặng tương ứng hoặc dùng lại đúng cột của run đang dở.
+Không ghi List vào cột Summary; không lấy kết quả org trước cho org mới.
 
-Thêm dropdown cho các ô status, giống cột kiểm tra trước trong cùng tab.
-Làm theo [quy tắc dropdown](references/sheet-contract.md#dropdown-status).
+Chèn sau cột kiểm tra cuối của từng tab. Nếu bên phải có `AI Chat`, đẩy cột
+đó sang phải. Copy định dạng và dropdown theo
+[sheet-contract.md](references/sheet-contract.md); không copy status/note cũ.
+Chặng chưa chạy thì ô kết quả để trống.
 
-Header chung cho hai tab:
+Header Summary:
 
 ```text
-<organization> - <source hiển thị> Summary
+<tên org> - <tên source> Summary
 <MMM dd, yyyy> - <MMM dd, yyyy>
-Kiểm tra ngày <MMM dd yyyy>
+Kiểm tra ngày <MMM dd yyyy hh:mm<AM/PM>>
 ```
 
-Ví dụ theo input minh họa, ngày kiểm tra giả định Nov 08 2026:
+Header List:
 
 ```text
-Mizmooz - Magento Summary
-Jan 01, 2026 - Oct 21, 2026
-Kiểm tra ngày Nov 08 2026
+<tên org> - <tên source> List
+<MMM dd, yyyy> - <MMM dd, yyyy>
+Kiểm tra ngày <MMM dd yyyy hh:mm<AM/PM>>
 ```
 
-Ngày kiểm tra lấy lúc bắt đầu lần chạy theo `Asia/Ho_Chi_Minh`; không dùng
-ngày ví dụ cố định. Hai tab dùng cùng header trong một lần chạy, kể cả khi
-chạy qua nửa đêm. Lần chạy mới cùng ngày vẫn tạo cột mới. Khi tiếp tục lần
-chạy đang dở, dùng lại cột đã xác minh của lần đó.
+Ví dụ header List, ngày giờ giả định:
 
-## III. Chọn organization trong Postman
+```text
+Mizmooz - Magento List
+Jan 01, 2026 - Oct 21, 2026
+Kiểm tra ngày Nov 08 2026 08:30PM
+```
 
-Làm theo [execute-api-ops.md](execute-api-ops.md): chọn đúng workspace,
-collection, environment; chạy Login và Choose_Org; xác minh organization
-và cơ chế truyền token. Không chọn organization theo vị trí trong danh sách.
+Một folder List dùng chung một cột cho các API/offset của folder đó.
+Ghi lại địa chỉ theo org/source/timerange/chặng; hai tab có thể khác vị trí.
+Lần kiểm tra mới tạo cột mới; resume không tạo cột trùng dù header giống nhau.
 
-## IV. Chạy Variant và ghi kết quả
+## III. Chọn org hiện tại
 
-1. Mở `Final / Summary_Variant / Summary_Variant`.
-2. Kiểm tra Authorization đang dùng biến `accessToken_Mizmooz`, biến đã có giá
-   trị từ lần Choose_Org vừa hoàn tất, không phải token cũ hoặc biến chưa resolve.
-3. Nếu chưa thấy query, dùng chức năng load/reload query/schema hiện có.
-4. Chọn query `Sales_by_variant`, truyền from_date, to_date, from_source.
-5. Kiểm tra lại request và script, sau đó Send một lần; chờ các kiểm tra hoàn tất.
-6. Đọc console/test result đúng lần chạy và đúng request.
-7. Áp dụng [quy tắc kết quả](references/result-rules.md), ghi vào cột Variant mới
-   bằng [skill ghi Sheet](skill/record-ops-summary-results/SKILL.md), rồi đọc lại.
+Dùng nguyên phần 1–2 [execute-api-ops.md](execute-api-ops.md): chọn workspace,
+collection, environment, Login, tìm ID đúng org, Choose_Org và kiểm tra token.
+Giữ session khi còn hợp lệ; chuyển org phải Choose_Org và xác minh lại.
+Trước mỗi chặng vẫn kiểm tra org, token, source, timerange trong request.
 
-## V. Chạy Product và ghi kết quả
+## IV. Summary Variant → ghi Sheet
 
-Sau khi Variant đã ghi và xác minh, mở `Final / Summary_Product /
-Summary_Product`, kiểm tra Authorization, load query `Sales_by_product`,
-truyền cùng input. Send một lần, chờ script xong, đọc console riêng của
-Product và ghi vào cột mới trong `Sales_by_product`. Không dùng lại console
-hoặc danh sách metric Variant cho Product.
+Chạy `Final / Summary_Variant / Summary_Variant`, query `Sales_by_variant`,
+theo phần 3 [execute-api-ops.md](execute-api-ops.md). Ghi và đọc lại status,
+note, dropdown trong cột Summary của `Sales_by_variant` bằng
+[skill ghi Sheet](skill/record-ops-summary-results/SKILL.md).
+Xong bước ghi và xác minh mới sang List Variant.
 
-## VI. Kết thúc hoặc tiếp tục khi bị kẹt
+## V. List Variant → ghi Sheet
 
-Báo kết quả theo [mẫu báo cáo](assets/run-report-template.md). Failed của metric
-không chặn Product; lỗi đăng nhập, query, script, mapping hoặc ghi Sheet thì có.
-Nếu Product chưa chạy, báo “Chưa chạy”; để trống cột Product, không điền N/A.
+Theo [execute-api-list.md](execute-api-list.md), chạy mọi API trong `List_Variant`,
+bắt đầu `Variant_List_Product_Info`. Mỗi API limit 20, offset 0, 20, 40, 60, 80
+ở query và script; xác minh đã kiểm tra 100 variant khác nhau.
+Đủ năm trang → gộp console → ghi và đọc lại cột List Variant → sang API tiếp.
+Giữ Failed xuyên trang/API. Xong toàn bộ folder mới chốt N/A và đọc lại cả cột.
+Chưa hoàn tất bước này thì chưa chạy Summary Product hoặc org tiếp theo.
 
-Khi bị kẹt, báo tab/request, bước lỗi, điều đã kiểm tra và phần cần người dùng
-hỗ trợ. Nếu đang dùng connector mà không có browser mở, mở workbook hoặc
-Postman trong browser in-app có hiển thị để người dùng xem. Chờ người dùng
-phản hồi, giữ nguyên browser. Không tự Send lại khi chưa biết request trước
-đã chạy hay chưa; kiểm tra kết quả hiện tại trước khi tiếp tục.
+## VI. Summary Product → ghi Sheet
+
+Sau khi cả hai chặng Variant đã lưu và xác minh, chạy `Final / Summary_Product /
+Summary_Product`, query `Sales_by_product`, theo phần 4
+[execute-api-ops.md](execute-api-ops.md). Ghi cột Summary trong `Sales_by_product`
+và đọc lại. Xác minh xong mới sang List Product.
+
+## VII. List Product → ghi Sheet
+
+Chạy từng API trong `Final / List_Product`, query `Sales_by_product` theo
+[execute-api-list.md](execute-api-list.md). Mỗi API cũng đủ 5 offset, kiểm tra
+100 product, ghi và xác minh sau mỗi API. Xong folder mới chốt N/A,
+đọc lại cả cột List Product.
+
+## VIII. Xong org hiện tại rồi mới chuyển org
+
+- Xác minh đủ bốn chặng: Summary Variant, List Variant, Summary Product,
+  List Product. Mỗi chặng phải có kết quả đã lưu và đọc lại trong đúng cột.
+- Nếu org có nhiều source được yêu cầu, làm xong bốn chặng của từng source
+  trước khi chuyển org. Không tự mở rộng sang source chưa được yêu cầu.
+- Sang org kế theo danh sách người dùng: Choose_Org, xác minh tên/ID, token,
+  từ đầu đặt lại input và offset; tạo cột riêng cho org/source mới.
+- Không tổng hợp Failed/N/A/console từ org hoặc source trước sang org mới.
+- Báo kết quả theo [mẫu báo cáo](assets/run-report-template.md).
+
+## IX. Nếu bị kẹt
+
+Giữ browser in-app mở tại bước lỗi, nêu org/source/chặng/API/offset, phần đã
+lưu và phần cần hỗ trợ. Chờ người dùng, không tự sang chặng hoặc org kế.
+Nếu connector đang dùng không có browser mở, mở Postman/Sheet in-app để
+người dùng kiểm tra. Resume đúng bước/cột; lỗi lưu Sheet thì đọc lại và ghi
+tiếp bằng kết quả đã có, không tự chạy lại API.
+
+Metric Failed không chặn chặng tiếp theo nếu đã kiểm tra đầy đủ, ghi và đọc
+lại xong. Lỗi thực thi, thiếu coverage, mapping chưa rõ hoặc chưa lưu được
+thì dừng. Chưa chạy để trống, không điền N/A thay kết quả chưa có.
 
 ## Chỗ thường cần chỉnh
 
 | Muốn chỉnh gì | Sửa ở đâu |
 | --- | --- |
-| Tên workspace, collection, environment, request | references/run-settings.md |
-| Thao tác Login, Choose_Org, query, console | execute-api-ops.md |
-| Vị trí cột, header và phạm vi ghi | references/sheet-contract.md và phần II ở trên |
-| Tick xanh/đỏ, mapping metric, note | references/result-rules.md |
-| Cách báo kết quả | assets/run-report-template.md |
+| Thứ tự chặng và chuyển org | FLOW.md và SKILL.md |
+| Workspace, collection, environment, request | references/run-settings.md |
+| Login, Choose_Org, Summary | execute-api-ops.md |
+| List, offset query/script, thứ tự API | execute-api-list.md |
+| Cột, header, dropdown | references/sheet-contract.md và phần II ở trên |
+| Status, mapping, note | references/result-rules.md |
+| Input và báo cáo | assets/run-input-template.md, assets/run-report-template.md |

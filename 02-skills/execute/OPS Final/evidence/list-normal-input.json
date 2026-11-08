@@ -1,0 +1,189 @@
+{
+  "sheet_name": "Sales_by_variant",
+  "requests": [
+    "List_Variant/Variant_List_Product_Info",
+    "List_Variant/Test_Sales"
+  ],
+  "finalize": true,
+  "distinct_items_verified": {
+    "List_Variant/Variant_List_Product_Info": true,
+    "List_Variant/Test_Sales": true
+  },
+  "metrics": [
+    {
+      "row": 3,
+      "name": "Variant Title"
+    },
+    {
+      "row": 24,
+      "name": "Total Sales"
+    },
+    {
+      "row": 51,
+      "name": "Ad spend"
+    }
+  ],
+  "pages": [
+    {
+      "request": "List_Variant/Variant_List_Product_Info",
+      "offset": 0,
+      "script_offset": 0,
+      "limit": 20,
+      "items_checked": 20,
+      "run_complete": true,
+      "results": [
+        {
+          "metric": "Variant Title",
+          "status": "Passed"
+        }
+      ]
+    },
+    {
+      "request": "List_Variant/Variant_List_Product_Info",
+      "offset": 20,
+      "script_offset": 20,
+      "limit": 20,
+      "items_checked": 20,
+      "run_complete": true,
+      "results": [
+        {
+          "metric": "Variant Title",
+          "status": "Failed",
+          "message": "❌ Test giả lập: sai title"
+        }
+      ]
+    },
+    {
+      "request": "List_Variant/Variant_List_Product_Info",
+      "offset": 40,
+      "script_offset": 40,
+      "limit": 20,
+      "items_checked": 20,
+      "run_complete": true,
+      "results": [
+        {
+          "metric": "Variant Title",
+          "status": "Passed"
+        }
+      ]
+    },
+    {
+      "request": "List_Variant/Variant_List_Product_Info",
+      "offset": 60,
+      "script_offset": 60,
+      "limit": 20,
+      "items_checked": 20,
+      "run_complete": true,
+      "results": [
+        {
+          "metric": "Variant Title",
+          "status": "Passed"
+        }
+      ]
+    },
+    {
+      "request": "List_Variant/Variant_List_Product_Info",
+      "offset": 80,
+      "script_offset": 80,
+      "limit": 20,
+      "items_checked": 20,
+      "run_complete": true,
+      "results": [
+        {
+          "metric": "Variant Title",
+          "status": "Passed"
+        }
+      ]
+    },
+    {
+      "request": "List_Variant/Test_Sales",
+      "offset": 0,
+      "script_offset": 0,
+      "limit": 20,
+      "items_checked": 20,
+      "run_complete": true,
+      "results": [
+        {
+          "metric": "Variant Title",
+          "status": "Passed"
+        },
+        {
+          "metric": "Total Sales",
+          "status": "Passed"
+        }
+      ]
+    },
+    {
+      "request": "List_Variant/Test_Sales",
+      "offset": 20,
+      "script_offset": 20,
+      "limit": 20,
+      "items_checked": 20,
+      "run_complete": true,
+      "results": [
+        {
+          "metric": "Variant Title",
+          "status": "Passed"
+        },
+        {
+          "metric": "Total Sales",
+          "status": "Passed"
+        }
+      ]
+    },
+    {
+      "request": "List_Variant/Test_Sales",
+      "offset": 40,
+      "script_offset": 40,
+      "limit": 20,
+      "items_checked": 20,
+      "run_complete": true,
+      "results": [
+        {
+          "metric": "Variant Title",
+          "status": "Passed"
+        },
+        {
+          "metric": "Total Sales",
+          "status": "Passed"
+        }
+      ]
+    },
+    {
+      "request": "List_Variant/Test_Sales",
+      "offset": 60,
+      "script_offset": 60,
+      "limit": 20,
+      "items_checked": 20,
+      "run_complete": true,
+      "results": [
+        {
+          "metric": "Variant Title",
+          "status": "Passed"
+        },
+        {
+          "metric": "Total Sales",
+          "status": "Passed"
+        }
+      ]
+    },
+    {
+      "request": "List_Variant/Test_Sales",
+      "offset": 80,
+      "script_offset": 80,
+      "limit": 20,
+      "items_checked": 20,
+      "run_complete": true,
+      "results": [
+        {
+          "metric": "Variant Title",
+          "status": "Passed"
+        },
+        {
+          "metric": "Total Sales",
+          "status": "Passed"
+        }
+      ]
+    }
+  ]
+}

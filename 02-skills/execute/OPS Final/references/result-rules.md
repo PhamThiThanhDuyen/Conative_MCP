@@ -2,7 +2,7 @@
 
 ## Nguồn kết quả
 
-Dùng tick xanh/đỏ và nội dung kiểm tra do script của request Summary vừa chạy
+Dùng tick xanh/đỏ và nội dung kiểm tra do script của request Summary hoặc List vừa chạy
 trả về trong Postman Console/test result. Giữ tách biệt Variant và Product.
 Chỉ lấy log sau mốc Send của đúng request, organization, source và timerange.
 
@@ -44,6 +44,21 @@ Nếu không rõ đây là subcheck hay log cũ/trộn run, hỏi thay vì tự 
 
 N/A chỉ áp dụng sau khi đã có lần chạy hợp lệ và đọc đủ kết quả. Console rỗng,
 lỗi auth, GraphQL errors hoặc script không hoàn tất không đủ điều kiện ghi N/A.
+
+## Kết quả List qua nhiều trang và API
+
+- Tách theo run, tab, API và offset; mỗi API đủ 5 trang mới ghi kết quả của API.
+- Một metric có đỏ ở bất kỳ item/trang/API nào → Failed; giữ mọi lỗi đã ghi.
+- Nếu các kiểm tra đã có đều xanh → Passed tạm thời. Đọc tiếp các API còn lại;
+  có đỏ mới thì đổi sang Failed. Chỉ xem Passed là kết quả cuối khi folder hoàn tất.
+- Chỉ ghi N/A cho metric không xuất hiện trong toàn bộ kết quả của folder đã
+  hoàn tất. Không ghi N/A sau API đầu vì API tiếp theo có thể kiểm tra metric đó.
+- Sau mỗi API, gộp lũy kế từ đầu folder, đọc status/note hiện có và chỉ ghi
+  metric đã có kết quả. Không xóa hoặc thay note lỗi cũ bằng note trang cuối.
+- Note Failed có thể thêm dòng `API: <tên/path> | offset: <n>`, rồi dòng lỗi
+  nguyên văn. Giữ từng dòng đỏ cùng API/offset để biết lỗi ở đâu.
+- Lỗi thực thi ở một trang: dừng ở trang đó và hỏi người dùng; không chốt
+  status cuối hoặc N/A cho folder chưa đủ. Không dùng lại log trang trước.
 
 ## Note cho Failed
 

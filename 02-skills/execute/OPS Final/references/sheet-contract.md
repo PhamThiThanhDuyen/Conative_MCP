@@ -20,6 +20,10 @@
 
 ## Chèn cột mới
 
+- Flow đầy đủ có hai cột trong mỗi tab cho mỗi org/source: Summary và List.
+  Tạo cột trước chặng tương ứng. Tổng cộng bốn cột; không ghi đè hoặc gộp
+  kết quả giữa Summary/List, giữa các org/source/timerange hoặc giữa hai tab.
+
 - Xác định cột lần kiểm tra nằm ngoài cùng bên phải trong từng tab, dựa trên
   header và nội dung lịch sử; không chọn theo ngày lớn nhất trong chuỗi text.
 - Chèn đúng một cột ngay sau cột đó. Nếu bên phải là cột chức năng như `AI Chat`,
@@ -50,6 +54,17 @@
   header, status và note; không chạy lại API hoặc tạo cột mới.
 
 ## Ghi kết quả và note
+
+Mỗi lần ghi xác minh org/source/timerange, chặng Summary/List và tab đích.
+Ghi và đọc lại xong chặng hiện tại mới chuyển chặng theo [FLOW.md](../FLOW.md).
+Xong cả bốn chặng và phạm vi source được yêu cầu của org mới chuyển org kế.
+
+Với List, dùng một cột chung cho cả folder trong mỗi tab, header theo
+[FLOW.md](../FLOW.md). Sau mỗi API đủ 5 trang, gộp thêm kết quả vào cột đó.
+Giữ Failed và note của API/offset trước; không để xanh sau ghi đè Failed.
+Chưa xong folder thì để trống metric chưa có kết quả, chưa điền N/A.
+Chỉ chốt N/A khi mọi API trong folder đã được kiểm tra đủ. Xem
+[quy tắc gộp List](result-rules.md#kết-quả-list-qua-nhiều-trang-và-api).
 
 Chỉ ghi dòng metric trong cột mới của tab tương ứng. Không thay các cột Name,
 Key, ID, kết quả cũ, cột Note chung hoặc tab `Danh sách org`.

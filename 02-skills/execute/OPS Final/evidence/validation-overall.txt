@@ -1,0 +1,22 @@
+OPS Final overall sequence update 2026-11-08
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/OPS Final/SKILL.md: 581 words, 61 lines
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/OPS Final/skill/record-ops-summary-results/SKILL.md: 353 words, 36 lines
+Summary: 2 skills, 0 warning(s), 0 failure(s)
+
+['python3', '/Users/duyenpham/Documents/Work/Automation/Conative_MCP/05-scripts/validate_skill_size.py', '/private/tmp/ops-overall-update/OPS Final', '/private/tmp/ops-overall-update/OPS Final/skill/record-ops-summary-results', '--fail-on-warning']
+[PASS] /private/tmp/ops-overall-update/OPS Final/SKILL.md: 507 words, 56 lines
+[PASS] /private/tmp/ops-overall-update/OPS Final/skill/record-ops-summary-results/SKILL.md: 400 words, 41 lines
+Summary: 2 skills, 0 warning(s), 0 failure(s)
+
+['python3', '/Users/duyenpham/.codex/skills/.system/skill-creator/scripts/quick_validate.py', '/private/tmp/ops-overall-update/OPS Final']
+Skill is valid!
+
+['python3', '/Users/duyenpham/.codex/skills/.system/skill-creator/scripts/quick_validate.py', '/private/tmp/ops-overall-update/OPS Final/skill/record-ops-summary-results']
+Skill is valid!
+
+Auth, dropdown, helper code and tests unchanged: PASS. No code tests rerun for documentation-only changes.
+Document walkthrough (not API execution), normal case: Org A Summary Variant/run+write+readback, List Variant/all APIs+pages+write+readback, Summary Product/run+write+readback, List Product/all APIs+pages+write+readback; then Choose_Org B and repeat. Separate columns for each stage/org: PASS.
+Document walkthrough (not API execution), failure case: Org A List Variant Sheet write uncertain; read back, keep browser open, ask user, resume same column. Block Summary Product and Org B until verified: PASS.
+Explicit limited scope remains supported; full flow defaults to all four stages: PASS.
+Local references: PASS; external repository-policy references checked at final destination.
+Limited private-key/JWT scan: PASS. No live API run or Google Sheet changes.
