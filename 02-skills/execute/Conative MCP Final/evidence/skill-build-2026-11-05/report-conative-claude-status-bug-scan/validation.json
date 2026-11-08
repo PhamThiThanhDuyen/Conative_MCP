@@ -1,0 +1,44 @@
+{
+  "baseline": {
+    "words": 568,
+    "lines": 32,
+    "result": "PASS"
+  },
+  "original_sha256": {
+    "SKILL.md": "1ba2f3b13d6f52e0ec4efe1d822ddbe94abcb16965cafba4dbf0e7b325c732b7",
+    "references/input-schema.md": "d09cb193a6ecffc8b10631b729a4273f6f4c47b78eb038e4f431f4dac4fc1979",
+    "assets/report-template.md": "4b4dd072627ae20d700582f519ff7058f05348114fc6218fbb5ebfcc4c094ac9",
+    "scripts/build_report.py": "d9a68a26830241f7f3beb2e5949d275dcd57642142a5f317b02f692d9b71256e"
+  },
+  "change_class": "Behavioral",
+  "request": "Scan all current testcase failures to determine affected orgs, including verified same-defect cases without Ticket OP references",
+  "approval_status": "Review pending; no team promotion claimed",
+  "date": "2026-11-05",
+  "final": {
+    "words": 611,
+    "lines": 34,
+    "result": "PASS"
+  },
+  "official_validator": "Skill is valid!",
+  "checks": [
+    "10 regression tests passed",
+    "live scan: all 7 Actual columns over rows 2:1072; 55 current FAIL notes read",
+    "89806 includes Noonday through T2-COV-341 and T2-COV-342 defect-match evidence",
+    "stale PASS ticket references excluded",
+    "shared metric alone does not add org",
+    "summary counts/colors unchanged",
+    "all Markdown links resolve"
+  ],
+  "scan": {
+    "current_fail_cases": 55,
+    "reported_tickets": 14,
+    "limitations": [
+      "Noonday/Wholesale/T2-COV-347 ghi Ticket OP 88247, nhưng case lỗi bỏ danh sách Ad Clicks toàn 0 còn ticket mô tả forecast_time kết thúc sớm 1 ngày; liên kết cần rà soát.",
+      "Chưa xác nhận ticket cho Melinda/Nuorder: T2-COV-144, T2-COV-146, T2-COV-185, T2-COV-186, T2-COV-187, T2-COV-188, T2-COV-195, T2-COV-196, T2-COV-201, T2-COV-202, T2-COV-209, T2-COV-210, T2-COV-213",
+      "Chưa xác nhận ticket cho Mizmooz/Magento: T2-COV-094",
+      "Chưa xác nhận ticket cho Mizmooz/Amazon Seller Central - US: T2-COV-284",
+      "Chưa xác nhận ticket cho Noonday/Shopify: T2-COV-045, T2-COV-070",
+      "Chưa xác nhận ticket cho Noonday/Wholesale: T2-COV-331, T2-COV-333, T2-COV-347, T2-COV-355"
+    ]
+  }
+}

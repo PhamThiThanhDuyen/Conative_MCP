@@ -1,0 +1,403 @@
+{
+  "88223": {
+    "title": "[MCP][Claude][Chanluu/Mizmooz] - Total count mismatch between Claude and QE API",
+    "orgs": [
+      "Chanluu",
+      "Mizmooz",
+      "Noonday"
+    ],
+    "evidence": [
+      {
+        "org": "Chanluu",
+        "source": "Shopify",
+        "tc_id": "T2-COV-001",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): -1 - Expected result conditions: pagination.total equality; FAIL because 12,667 ≠ 12,668",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Mizmooz",
+        "source": "Amazon Seller Central - US",
+        "tc_id": "T2-COV-215",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): -1 product. - Expected result conditions: FAIL; counts differ.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Noonday",
+        "source": "Shopify",
+        "tc_id": "T2-COV-001",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): 1428−1429=−1 product. - Expected result conditions: FAIL — requested total product count differs from QE pagination.total. Exact live Prompt sent once.",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "88231": {
+    "title": "[MCP][Claude][Chanluu] - Lệch data sales_forecast ở Claude thấp hơn QE",
+    "orgs": [
+      "Chanluu"
+    ],
+    "evidence": [
+      {
+        "org": "Chanluu",
+        "source": "Shopify",
+        "tc_id": "T2-COV-021",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): -767 units - Expected result conditions: Forecast equality FAIL (29,954 ≠ 30,721); sales period matches the prompt. Claude forecast ends 2027-01-18; QE forecast_time ends 2027-01-19 per the today + 90-day rule. Claude returned no metric table, so secondary comparison is N/A.",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "88247": {
+    "title": "[MCP][Claude][Chanluu] - Lệch data forecast_time ở Claude",
+    "orgs": [
+      "Chanluu",
+      "Mizmooz",
+      "Noonday"
+    ],
+    "evidence": [
+      {
+        "org": "Chanluu",
+        "source": "Shopify",
+        "tc_id": "T2-COV-021",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): -767 units - Expected result conditions: Forecast equality FAIL (29,954 ≠ 30,721); sales period matches the prompt. Claude forecast ends 2027-01-18; QE forecast_time ends 2027-01-19 per the today + 90-day rule. Claude returned no metric table, so secondary comparison is N/A.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Chanluu",
+        "source": "Shopify",
+        "tc_id": "T2-COV-022",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): sales_forecast = -308 units; variant count = 0 - Expected result conditions: FAIL for forecast equality (30,561 ≠ 30,869); sales period matches prompt; forecast end date differs by one day between Claude and QE; variant count matches at 14,900. No additional Claude metric table was returned, so condition 3 is N/A.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Mizmooz",
+        "source": "Amazon Seller Central - US",
+        "tc_id": "T2-COV-236",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): Total forecast 2936−2957=−21 units observed. Variant count 8669−8669=0; matched SKU forecast 16−16=0 units. Aggregate forecast windows differ by one ending day; no same-window backend arithmetic defect is inferred. - Expected result conditions: (1) FAIL: requested total differs from QE with the required forecast boundary. (2) FAIL under execute-api-QE Next 90-Day rule: Claude forecast to-date is today+89 rather than today+90. (3) N/A: no additional metric table; returned count and supplemental SKU forecast match QE. Current live Prompt submitted once; conclusions use only this rerun’s outputs, not the earlier historical-date Prompt.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Noonday",
+        "source": "Shopify",
+        "tc_id": "T2-COV-021",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): sales_forecast=-137. Exact decimals, no tolerance. Units=forecast quantity. QE forecast_time2026-11-02–2027-01-31 verified in response; historical time preserved separately. - Expected result conditions: FAIL — mapped values differ; requested metric returned; date/timezone true; source true; forecast false. Exact live Prompt submitted once.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Noonday",
+        "source": "Shopify",
+        "tc_id": "T2-COV-022",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): sales_forecast=-13372. Exact decimals, no tolerance. QE forecast_time2026-11-02–2027-01-31 verified; Claude instead queried historical forecast_time2026-07-17–2026-10-17. Count1807=QE pagination.total1807. Tool-only example rows are from different forecast windows/ranking populations. - Expected result conditions: FAIL — mapped values differ; requested metric returned; date/timezone true; source true; forecast false. Exact live Prompt submitted once.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Noonday",
+        "source": "Shopify",
+        "tc_id": "T2-COV-056",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): Not calculated. - Expected result conditions: FAIL. Forecast must run from Nov 3, 2026 through Feb 1, 2027 (today + 90 calendar days in America/Chicago). Claude end date was one day early.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Noonday",
+        "source": "Shopify",
+        "tc_id": "T2-COV-057",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): Not calculated. - Expected result conditions: FAIL. Forecast must run from Nov 3, 2026 through Feb 1, 2027 (today + 90 calendar days in America/Chicago). Claude end date was one day early.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Noonday",
+        "source": "Wholesale",
+        "tc_id": "T2-COV-306",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): -253 units. Forecast end date 1 calendar day earlier than required. - Expected result conditions: FAIL: forecast end does not equal org-local today + 90 calendar days; mapped forecast total differs. Noonday; wholesale; productList; full 76 fields; no active filter; HTTP 200; no runtime warnings. Prompt specifies no historical sales period: QE time and forecast_time both use requested future window 2026-11-02 through 2027-01-31; historical scope difference documented, numeric delta not attributed solely to end-date change. Exact prompt rerun after user switched account and confirmed Noonday reconnection; completed answer captured.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Noonday",
+        "source": "Wholesale",
+        "tc_id": "T2-COV-307",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): Total -98 units; AC291RW -17 units; NE699TA 0. SKU/title exact; count 0. - Expected result conditions: FAIL forecast timerange: required today + 90 calendar days is 2027-01-31, Claude end is one day earlier. Numeric mapped forecast total and supplemental AC291RW differ. Noonday; wholesale; variantList; 90 fields unchanged; no active filter; HTTP 200; no warnings. Prompt ends with literal \"from?\" and was submitted unchanged; no historical period specified. QE time and forecast_time use requested future window through Jan 31. Different historical scopes documented; numeric deltas not isolated to one cause.",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "88552": {
+    "title": "[MCP][Claude][Chanluu] - Lệch data Variant Title ở Claude so với QE",
+    "orgs": [
+      "Chanluu"
+    ],
+    "evidence": [
+      {
+        "org": "Chanluu",
+        "source": "Shopify",
+        "tc_id": "T2-COV-055",
+        "actual": "FAIL",
+        "failure_evidence": "- Root cause: Unknown; reproduced product-vs-variant label mapping mismatch.",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "88750": {
+    "title": "[MCP][Claude][Melinda Maria] - Lệch data Total count ở Claude thấp hơn so với QE",
+    "orgs": [
+      "Melinda"
+    ],
+    "evidence": [
+      {
+        "org": "Melinda",
+        "source": "Shopify",
+        "tc_id": "T2-COV-001",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): -54 products - Expected result conditions: total count bằng nhau cho org Melinda Maria, channel shopify, không filter; FAIL vì 11,862 ≠ 11,916",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "89378": {
+    "title": "[MCP][Claude][Mizmooz] - Lệch Total count products giữa Claude và QE API (Magento)",
+    "orgs": [
+      "Mizmooz"
+    ],
+    "evidence": [
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-073",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): 4,687 products; the queries have different time scopes. - Expected result conditions: Required total-count equality not met (6,353 ≠ 1,666). QE used the user-approved last-30-days default.",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "89380": {
+    "title": "[MCP][Claude][Mizmooz] - Thiếu metric Total Sales cho products channel Magento",
+    "orgs": [
+      "Mizmooz"
+    ],
+    "evidence": [
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-083",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): required total_sales not computable because Claude omitted it; six comparable extra metrics differ by 0. - Expected result conditions: Required total_sales equality unmet; timerange and six additional mapped values match.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-084",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): Required total_sales not calculated because Claude omitted it; all four comparable extra metrics and variant count differ by 0. - Expected result conditions: Required total_sales equality is unmet because Claude gave gross/net alternatives instead of the distinct total_sales metric; date range and extra metrics match. FAIL.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Mizmooz",
+        "source": "Amazon Seller Central - US",
+        "tc_id": "T2-COV-225",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): N/A for total_sales because Claude omitted it; 0 for all comparable secondary metrics. - Expected result conditions: Target total_sales equality not satisfied because Claude returned gross/net sales instead; timerange correct and secondary metrics match.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Mizmooz",
+        "source": "Amazon Seller Central - US",
+        "tc_id": "T2-COV-226",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): N/A for total_sales because Claude omitted it; 0 for comparable secondary metrics. - Expected result conditions: Target total_sales equality not satisfied because Claude returned gross/net sales instead; timerange correct and secondary metrics match.",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "89381": {
+    "title": "[MCP][Claude][Mizmooz] - Lệch data Product Views ở Claude thấp hơn so với QE",
+    "orgs": [
+      "Mizmooz"
+    ],
+    "evidence": [
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-095",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): −178,998 product views. - Expected result conditions: Product Views total equality is not met; last-month timerange condition is met.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-096",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): product_views +80,157; variant count 0. - Expected result conditions: Product Views total equality is not met; last-month timerange condition is met.",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "89383": {
+    "title": "[MCP][Claude][Mizmooz] - Lệch data Ad spend ở Claude thấp hơn so với QE",
+    "orgs": [
+      "Mizmooz"
+    ],
+    "evidence": [
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-097",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): −75,111.72 store currency. - Expected result conditions: Ad spend total equality is not met; requested timerange condition is met.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-098",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): ad_spend +8,954.64 store currency; variant count 0. - Expected result conditions: Ad spend total equality is not met; requested timerange condition is met.",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "89542": {
+    "title": "[MCP][Claude][Mizmooz] - Lệch data Ad click ở Claude thấp hơn so với QE",
+    "orgs": [
+      "Mizmooz"
+    ],
+    "evidence": [
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-099",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): 37,003 − 184,129 = −147,126 ad clicks. - Expected result conditions: Total ad clicks equality is not met. Timerange is correct. Claude returned no additional metric table.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-100",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): ad clicks +564; variant count 0. - Expected result conditions: Total ad clicks equality is not met. Timerange is correct. Claude's extra table shows the same metric and dimensions; no other metric table was returned.",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "89641": {
+    "title": "[MCP][Claude][Mizmooz] - Lệch data Stock ở Claude cao hơn so với QE",
+    "orgs": [
+      "Mizmooz"
+    ],
+    "evidence": [
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-101",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): stock +359 units; on_order 0; ats +359 units. - Expected result conditions: Stock equality is not met. Additional mapped ATS equality is not met; On Order matches. No explicit prompt date boundaries were omitted.",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "89806": {
+    "title": "[MCP][Claude][Mizmooz] - Lệch data sales_forecast ở Claude thấp hơn so với QE",
+    "orgs": [
+      "Mizmooz",
+      "Noonday"
+    ],
+    "evidence": [
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-128",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): 87/100 sales_forecast values differ; top-100 −810 units, channel −1,344 units, Louise −29 units. Product/SKU/Gross Sales/Gross Quantity match 100/100; channel Gross Sales 1,870,189.10 and Gross Quantity 11,844 match. Forecast values are from different windows, so the mismatch is not a same-scope calculation error. - Expected result conditions: Next 90-Day forecast must use org-local today through today +90 days and match QE at that scope; FAIL.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Mizmooz",
+        "source": "Magento",
+        "tc_id": "T2-COV-129",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): 17/100 sales_forecast values differ; top-100 −17 units, channel −205 units, SKU 192358276883 −1 unit. Product/Variant/SKU/Gross Sales/Gross Quantity/Stock match 100/100; channel Gross Sales 5,250,920.71 and Gross Quantity 35,638 match. Forecast values are from different windows, so the mismatch is not a same-scope calculation error. - Expected result conditions: Next 90-Day forecast must use org-local today through today +90 days and match QE at that scope; FAIL.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Noonday",
+        "source": "Wholesale",
+        "tc_id": "T2-COV-341",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): Reported top-100 sum −63; 5/5 verified forecast values differ by −17, −1, −1, −2, −1. Gross Sales matches 5/5. Remaining 95 rows unverified. - Expected result conditions: FAIL forecast timerange and per-item forecast on five matched SKUs; remaining XLSX cells unverified.",
+        "link_type": "defect-match",
+        "reason": "Ticket 89806, T2-COV-129: forecast starts 2026-10-30 instead of org-local 2026-10-29 while end remains 2027-01-27. This current Noonday case starts 2026-11-03 instead of QE org-local 2026-11-02 while end remains 2027-01-31. Both independently demonstrate a one-calendar-day-late forecast start and mismatching sales_forecast; same observed failure behavior, shared backend cause not established.",
+        "ticket_reference": "https://devtak.cbidigital.com/projects/conative-paas/work_packages/89806/activity"
+      },
+      {
+        "org": "Noonday",
+        "source": "Wholesale",
+        "tc_id": "T2-COV-342",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): Forecast sum −62; 45/100 forecast values and 19/100 Reorder Quantity values differ. All 100 unique SKU keys match; titles, Gross Sales, Gross Quantity, Stock and Days of Stock (AI) match. - Expected result conditions: PASS 100-variant list; FAIL forecast date range, forecast values and mapped Reorder Quantity.",
+        "link_type": "defect-match",
+        "reason": "Ticket 89806, T2-COV-129: forecast starts 2026-10-30 instead of org-local 2026-10-29 while end remains 2027-01-27. This current Noonday case starts 2026-11-03 instead of QE org-local 2026-11-02 while end remains 2027-01-31. Both independently demonstrate a one-calendar-day-late forecast start and mismatching sales_forecast; same observed failure behavior, shared backend cause not established.",
+        "ticket_reference": "https://devtak.cbidigital.com/projects/conative-paas/work_packages/89806/activity"
+      }
+    ]
+  },
+  "89839": {
+    "title": "[MCP][Claude][Mizmooz] - Lệch data Stock ở Claude cao hơn so với QE (Amazon Seller Central - US)",
+    "orgs": [
+      "Mizmooz"
+    ],
+    "evidence": [
+      {
+        "org": "Mizmooz",
+        "source": "Amazon Seller Central - US",
+        "tc_id": "T2-COV-243",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): stock +331; ATS +331; On Order 0; Gross Quantity 0; Net Quantity 0. - Expected result conditions: Stock equality FAIL; Claude timerange PASS; additional ATS equality FAIL; On Order, Gross Quantity and Net Quantity PASS.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Mizmooz",
+        "source": "Amazon Seller Central - US",
+        "tc_id": "T2-COV-245",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): On Order 0; Stock +331; ATS +331. - Expected result conditions: On Order equality PASS; Claude timerange PASS; no additional metric table in final answer, but mapped Stock and ATS claims in prose FAIL. Claude CQL used Amazon-only SCOPE and GRAIN summary; QE used entity_grain product.",
+        "link_type": "explicit"
+      }
+    ]
+  },
+  "90417": {
+    "title": "[MCP][Claude][Noonday] - Lệch data On Order ở Claude cao hơn so với QE",
+    "orgs": [
+      "Noonday"
+    ],
+    "evidence": [
+      {
+        "org": "Noonday",
+        "source": "Wholesale",
+        "tc_id": "T2-COV-316",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): +26040 units. - Expected result conditions: FAIL mapped Wholesale On Order equality. No date restriction requested.",
+        "link_type": "explicit"
+      },
+      {
+        "org": "Noonday",
+        "source": "Wholesale",
+        "tc_id": "T2-COV-317",
+        "actual": "FAIL",
+        "failure_evidence": "- Difference (Claude − QE API): +26040 units. - Expected result conditions: FAIL mapped Wholesale On Order equality. No date restriction requested.",
+        "link_type": "explicit"
+      }
+    ]
+  }
+}

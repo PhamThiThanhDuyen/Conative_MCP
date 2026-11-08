@@ -1,0 +1,18 @@
+test_cli_writes_output_and_returns_status_codes (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_duplicate_id_is_invalid (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_failure_survives_another_blocked_field (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_incomplete_pagination_cannot_establish_missing_product (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_legacy_qe_snapshot_cannot_pass_as_log (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_missing_observation_blocks (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_missing_or_mismatched_timezone_blocks_before_value_comparison (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_percent_is_not_implicitly_scaled (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_rounding_is_visible (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_same_numbers_different_row_order_and_scale (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_title_and_grouping_are_not_normalized_without_permission (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_unknown_precision_and_missing_value_are_blocked (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_wrong_conversation_turn_or_unverified_link_blocks (test_compare_snapshot.CompareSnapshotTests) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.085s
+
+OK

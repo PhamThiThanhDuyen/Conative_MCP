@@ -1,0 +1,14 @@
+Skill is valid!
+
+Skill is valid!
+
+[PASS] /Users/duyenpham/Documents/ChatGPT/Workspace UI MCP Conative/skill-build/project-export/package-root/SKILL.md: 260 words, 26 lines
+[PASS] /Users/duyenpham/Documents/ChatGPT/Workspace UI MCP Conative/skill-build/project-export/write-qa-testcases/SKILL.md: 384 words, 21 lines
+Summary: 2 skills, 0 warning(s), 0 failure(s)
+
+PASS: local links, unchanged canonical writing standard, synthetic normal/missing-input walkthrough outputs, and credential-pattern scan.
+
+Post-save validation at project destination:
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Workspace UI & Func/SKILL.md: 260 words, 26 lines
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Workspace UI & Func/skill/write-qa-testcases/SKILL.md: 384 words, 21 lines
+Summary: 2 skills, 0 warning(s), 0 failure(s)

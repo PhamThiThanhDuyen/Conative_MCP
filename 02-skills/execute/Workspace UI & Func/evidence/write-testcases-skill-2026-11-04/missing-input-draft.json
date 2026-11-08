@@ -1,0 +1,12 @@
+{
+  "request": "Bổ sung case vào sheet đã có dropdown, nhưng chưa cung cấp URL hoặc danh sách giá trị được phép.",
+  "artifact": {
+    "draft": "Soạn case ở dạng draft cùng format; chưa ghi live sheet.",
+    "missing_inputs": [
+      "URL/tab đích để đọc header và validation"
+    ],
+    "priority": "Chưa gán giá trị dropdown",
+    "execution_status": "Chưa chạy"
+  },
+  "behavior": "Không đoán spreadsheet, không dùng workbook cũ, không tự chọn P0/P1, không ghi dữ liệu hoặc đánh Pass."
+}

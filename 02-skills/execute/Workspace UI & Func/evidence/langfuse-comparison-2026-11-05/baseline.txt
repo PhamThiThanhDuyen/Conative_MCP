@@ -1,0 +1,23 @@
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Workspace UI & Func/SKILL.md: 260 words, 26 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Workspace UI & Func/skill/compare-workspace-report-qe/SKILL.md: 355 words, 15 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Workspace UI & Func/skill/create-workspace-bug/SKILL.md: 662 words, 28 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Workspace UI & Func/skill/execute-workspace-ui-func/SKILL.md: 278 words, 13 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Workspace UI & Func/skill/read-workspace-testcase/SKILL.md: 266 words, 11 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Workspace UI & Func/skill/record-workspace-test-result/SKILL.md: 357 words, 13 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Workspace UI & Func/skill/run-workspace-ui-testcase/SKILL.md: 354 words, 16 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Workspace UI & Func/skill/write-qa-testcases/SKILL.md: 384 words, 21 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)

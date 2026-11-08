@@ -1,0 +1,68 @@
+OPS Final - offline validation 2026-11-08
+Baseline: each of 2 SKILL.md files was 12 words / 4 lines / PASS.
+Validator dependency: PyYAML 6.0.2 installed in temporary directory only.
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/duyenpham/Documents/Work/Automation/Conative_MCP/05-scripts/validate_skill_size.py', '/private/tmp/ops-final-build/OPS Final', '/private/tmp/ops-final-build/OPS Final/skill/record-ops-summary-results', '--fail-on-warning']
+EXIT: 0
+[PASS] /private/tmp/ops-final-build/OPS Final/SKILL.md: 465 words, 51 lines
+[PASS] /private/tmp/ops-final-build/OPS Final/skill/record-ops-summary-results/SKILL.md: 288 words, 29 lines
+Summary: 2 skills, 0 warning(s), 0 failure(s)
+
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/duyenpham/.codex/skills/.system/skill-creator/scripts/quick_validate.py', '/private/tmp/ops-final-build/OPS Final']
+EXIT: 0
+Skill is valid!
+
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '/Users/duyenpham/.codex/skills/.system/skill-creator/scripts/quick_validate.py', '/private/tmp/ops-final-build/OPS Final/skill/record-ops-summary-results']
+EXIT: 0
+Skill is valid!
+
+COMMAND: ['/Library/Developer/CommandLineTools/usr/bin/python3', '-m', 'unittest', 'discover', '-s', 'scripts', '-p', 'test_*.py', '-v']
+EXIT: 0
+test_completed_run_maps_pass_fail_missing_and_preserves_note (test_build_result_plan.ResultPlanTests) ... ok
+test_duplicate_row_or_name_is_blocked (test_build_result_plan.ResultPlanTests) ... ok
+test_empty_console_is_blocked (test_build_result_plan.ResultPlanTests) ... ok
+test_failed_requires_note (test_build_result_plan.ResultPlanTests) ... ok
+test_incomplete_run_never_becomes_all_na (test_build_result_plan.ResultPlanTests) ... ok
+test_mixed_results_need_verified_subchecks (test_build_result_plan.ResultPlanTests) ... ok
+test_no_write_to_other_tab_or_status (test_build_result_plan.ResultPlanTests) ... ok
+test_product_has_its_own_metric_rows (test_build_result_plan.ResultPlanTests) ... ok
+test_unknown_metric_is_not_silently_na (test_build_result_plan.ResultPlanTests) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.000s
+
+OK
+
+NORMAL SIMULATION: PASS
+Đã tạo kế hoạch Sales_by_variant: {'Passed': 1, 'Failed': 1, 'N/A': 1}. Chưa ghi Sheet.
+
+INCOMPLETE SIMULATION: PASS (expected refusal; no plan created)
+Chưa tạo kế hoạch: Lần chạy chưa hoàn tất; không tạo kế hoạch ghi N/A
+
+LINK CHECK: PASS (package links and repository policy links at final destination)
+CREDENTIAL SCAN: PASS (private-key/JWT/long-auth-literal patterns; limited scan)
+
+
+OPS Final - dropdown status update 2026-11-08
+Baseline before editing:
+- Main SKILL.md: PASS, 465 words / 51 lines.
+- record-ops-summary-results/SKILL.md: PASS, 288 words / 29 lines.
+Final size validation (--fail-on-warning):
+- Main SKILL.md: PASS, 472 words / 52 lines.
+- record-ops-summary-results/SKILL.md: PASS, 299 words / 30 lines.
+- 0 warnings, 0 failures.
+OpenAI quick_validate.py: both skills valid.
+- Initial attempt: unavailable PyYAML in system Python.
+- Successful retry: PYTHONPATH=/private/tmp/ops-final-validation-deps.
+Helper unit tests: 9/9 PASS.
+Local link/path checks: PASS. Limited credential scan: PASS.
+Live normal case: native dropdown copied from a complete status sample in each tab.
+- Sales_by_variant!GQ2:GQ76: 75 dropdowns, all rules match the GP2 sample.
+- Sales_by_product!CL2:CL65: 64 dropdowns, all rules match the CK2 sample.
+Existing-artifact update case: every status, note, header, format and neighboring
+cell in the inspected ranges matched before/after, excluding the new validation.
+- Variant: 21 Passed, 0 Failed, 54 N/A.
+- Product: 21 Passed, 2 Failed, 41 N/A; both failure notes retained.
+Native UI checks: PASS on both tabs; dropdown lists opened without changing
+selection. Green Passed, red Failed, yellow N/A chips and original Product
+failure note verified. See review-status.md.
+No API requests rerun; no columns created for this format update.

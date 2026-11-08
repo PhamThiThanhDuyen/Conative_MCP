@@ -1,0 +1,14 @@
+{
+  "case_id": "SYNTHETIC-ONLY",
+  "status": "BLOCK",
+  "counts": {
+    "match": 0,
+    "mismatch": 0,
+    "blocked": 1
+  },
+  "fields": {},
+  "differences": [],
+  "limitations": [
+    "missing scope: timezone"
+  ]
+}

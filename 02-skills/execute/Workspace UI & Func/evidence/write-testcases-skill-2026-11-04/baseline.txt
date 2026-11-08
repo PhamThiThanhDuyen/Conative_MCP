@@ -1,0 +1,5 @@
+[PASS] /Users/duyenpham/Documents/Work/Automation/Conative_MCP/02-skills/execute/Workspace UI & Func/SKILL.md: 223 words, 23 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+New imported skill initial baseline: WARN — 1564 words, 101 body lines.
+Resolution: preserve the full original body in references/writing-standard.md; use a concise entrypoint.

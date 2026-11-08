@@ -1,0 +1,21 @@
+[PASS] /private/tmp/conative-workspace-bug-y4ui43iv/Workspace UI & Func/SKILL.md: 225 words, 23 lines
+[PASS] /private/tmp/conative-workspace-bug-y4ui43iv/Workspace UI & Func/skill/compare-workspace-report-qe/SKILL.md: 355 words, 15 lines
+[PASS] /private/tmp/conative-workspace-bug-y4ui43iv/Workspace UI & Func/skill/create-workspace-bug/SKILL.md: 662 words, 28 lines
+[PASS] /private/tmp/conative-workspace-bug-y4ui43iv/Workspace UI & Func/skill/execute-workspace-ui-func/SKILL.md: 263 words, 13 lines
+[PASS] /private/tmp/conative-workspace-bug-y4ui43iv/Workspace UI & Func/skill/read-workspace-testcase/SKILL.md: 251 words, 11 lines
+[PASS] /private/tmp/conative-workspace-bug-y4ui43iv/Workspace UI & Func/skill/record-workspace-test-result/SKILL.md: 290 words, 13 lines
+[PASS] /private/tmp/conative-workspace-bug-y4ui43iv/Workspace UI & Func/skill/run-workspace-ui-testcase/SKILL.md: 354 words, 16 lines
+Summary: 7 skills, 0 warning(s), 0 failure(s)
+
+SKILL.md: Skill is valid!
+skill/compare-workspace-report-qe/SKILL.md: Skill is valid!
+skill/create-workspace-bug/SKILL.md: Skill is valid!
+skill/execute-workspace-ui-func/SKILL.md: Skill is valid!
+skill/read-workspace-testcase/SKILL.md: Skill is valid!
+skill/record-workspace-test-result/SKILL.md: Skill is valid!
+skill/run-workspace-ui-testcase/SKILL.md: Skill is valid!
+PASS local links: 36 links checked in changed Markdown files
+PASS new Knowledge metadata and draft authority; source registered in package sources.md
+PASS synthetic artifacts: four Heading 3 sections and numbered Steps in both drafts
+PASS recomputed synthetic descending Stock order
+PASS limited credential-pattern scan; not a security approval

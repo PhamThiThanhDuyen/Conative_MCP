@@ -1,0 +1,4 @@
+PASS: local Markdown links resolve (stage or unchanged repository targets).
+PASS: reference metadata required fields and knowledge_id uniqueness.
+PASS: changed active instructions route comparison to log; QE mentions are redirects/history/exclusions.
+PASS: no auth material or raw customer payload added; minimal source/observation pointers only.

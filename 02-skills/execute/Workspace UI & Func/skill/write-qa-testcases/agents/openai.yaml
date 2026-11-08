@@ -1,0 +1,6 @@
+interface:
+  display_name: "QA Test Cases & Scenarios"
+  short_description: "Viết test case gọn, rõ và đúng mẫu QA"
+  default_prompt: "Dùng $write-qa-testcases để viết test case/scenario theo nguồn đã cung cấp, đúng format và ngắn gọn."
+policy:
+  allow_implicit_invocation: true

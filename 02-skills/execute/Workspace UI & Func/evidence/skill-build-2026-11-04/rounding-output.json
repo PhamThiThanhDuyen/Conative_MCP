@@ -1,0 +1,38 @@
+{
+  "case_id": "SYNTHETIC-ONLY",
+  "status": "FAILED",
+  "counts": {
+    "match": 5,
+    "mismatch": 1,
+    "blocked": 0
+  },
+  "fields": {
+    "gross_sales": {
+      "match": 1,
+      "mismatch": 1,
+      "blocked": 0
+    },
+    "return_rate": {
+      "match": 2,
+      "mismatch": 0,
+      "blocked": 0
+    },
+    "title": {
+      "match": 2,
+      "mismatch": 0,
+      "blocked": 0
+    }
+  },
+  "differences": [
+    {
+      "id": "QA-101",
+      "field": "gross_sales",
+      "qe_field": "gross_sales",
+      "ui": "1000",
+      "qe": "1000.25",
+      "ui_minus_qe": "-0.25",
+      "state": "mismatch"
+    }
+  ],
+  "limitations": []
+}

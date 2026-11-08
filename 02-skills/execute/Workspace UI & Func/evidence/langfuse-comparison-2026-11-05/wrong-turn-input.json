@@ -1,0 +1,89 @@
+{
+  "case_id": "SYNTHETIC-ONLY",
+  "key": {
+    "ui": "product_id",
+    "log": "product_id"
+  },
+  "ui_scope": {
+    "org_id": "synthetic-org",
+    "grain": "product",
+    "sources": [
+      "synthetic-source"
+    ],
+    "from": "2026-01-01",
+    "to": "2026-02-01",
+    "timezone": "UTC",
+    "date_boundary": "from-inclusive,to-exclusive",
+    "filters": []
+  },
+  "log_scope": {
+    "org_id": "synthetic-org",
+    "grain": "product",
+    "sources": [
+      "synthetic-source"
+    ],
+    "from": "2026-01-01",
+    "to": "2026-02-01",
+    "timezone": "UTC",
+    "date_boundary": "from-inclusive,to-exclusive",
+    "filters": []
+  },
+  "log_window_complete": true,
+  "fields": [
+    {
+      "ui": "gross_sales",
+      "log": "gross_sales",
+      "type": "decimal",
+      "grouping_separator": ","
+    },
+    {
+      "ui": "return_rate",
+      "log": "return_rate",
+      "type": "percent"
+    },
+    {
+      "ui": "title",
+      "log": "title",
+      "type": "string"
+    }
+  ],
+  "ui_rows": [
+    {
+      "product_id": "QA-101",
+      "gross_sales": "1,000.25",
+      "return_rate": "2%",
+      "title": "Synthetic A"
+    },
+    {
+      "product_id": "QA-102",
+      "gross_sales": "50.0",
+      "return_rate": "0%",
+      "title": "Synthetic B"
+    }
+  ],
+  "log_rows": [
+    {
+      "product_id": "QA-102",
+      "gross_sales": "50.00",
+      "return_rate": "0",
+      "title": "Synthetic B"
+    },
+    {
+      "product_id": "QA-101",
+      "gross_sales": "1000.25",
+      "return_rate": "2.00",
+      "title": "Synthetic A"
+    }
+  ],
+  "ui_conversation_id": "synthetic-conversation",
+  "ui_response_turn": "synthetic-turn-1",
+  "log_provenance": {
+    "conversation_id": "synthetic-conversation",
+    "session_id": "[\"synthetic-org\",\"synthetic-conversation\"]",
+    "trace_id": "synthetic-trace",
+    "observation_id": "synthetic-observation",
+    "observation_name": "tool.execution:query_data",
+    "response_turn": "synthetic-turn-2",
+    "response_link_verified": true
+  }
+}

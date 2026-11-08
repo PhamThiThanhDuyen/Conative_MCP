@@ -1,0 +1,28 @@
+{
+  "sheet_name": "Sales_by_variant",
+  "cells": [
+    {
+      "row": 18,
+      "metric": "Gross Sales",
+      "value": "Passed",
+      "note": null
+    },
+    {
+      "row": 24,
+      "metric": "Total Sales",
+      "value": "Failed",
+      "note": "❌ Test giả lập total_sales: A=10, B=12, Difference=2"
+    },
+    {
+      "row": 51,
+      "metric": "Ad spend",
+      "value": "N/A",
+      "note": null
+    }
+  ],
+  "counts": {
+    "Passed": 1,
+    "Failed": 1,
+    "N/A": 1
+  }
+}

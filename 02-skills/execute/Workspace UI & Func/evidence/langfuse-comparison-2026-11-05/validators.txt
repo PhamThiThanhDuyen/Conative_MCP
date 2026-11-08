@@ -1,0 +1,62 @@
+SKILL.md validate_skill_size.py
+[PASS] /private/tmp/workspace-langfuse-update-20261105/package/SKILL.md: 273 words, 26 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+SKILL.md quick_validate.py
+Skill is valid!
+
+skill/compare-workspace-report-log/SKILL.md validate_skill_size.py
+[PASS] /private/tmp/workspace-langfuse-update-20261105/package/skill/compare-workspace-report-log/SKILL.md: 343 words, 13 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+skill/compare-workspace-report-log/SKILL.md quick_validate.py
+Skill is valid!
+
+skill/compare-workspace-report-qe/SKILL.md validate_skill_size.py
+[PASS] /private/tmp/workspace-langfuse-update-20261105/package/skill/compare-workspace-report-qe/SKILL.md: 57 words, 4 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+skill/compare-workspace-report-qe/SKILL.md quick_validate.py
+Skill is valid!
+
+skill/create-workspace-bug/SKILL.md validate_skill_size.py
+[PASS] /private/tmp/workspace-langfuse-update-20261105/package/skill/create-workspace-bug/SKILL.md: 669 words, 28 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+skill/create-workspace-bug/SKILL.md quick_validate.py
+Skill is valid!
+
+skill/execute-workspace-ui-func/SKILL.md validate_skill_size.py
+[PASS] /private/tmp/workspace-langfuse-update-20261105/package/skill/execute-workspace-ui-func/SKILL.md: 325 words, 13 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+skill/execute-workspace-ui-func/SKILL.md quick_validate.py
+Skill is valid!
+
+skill/read-workspace-testcase/SKILL.md validate_skill_size.py
+[PASS] /private/tmp/workspace-langfuse-update-20261105/package/skill/read-workspace-testcase/SKILL.md: 294 words, 11 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+skill/read-workspace-testcase/SKILL.md quick_validate.py
+Skill is valid!
+
+skill/record-workspace-test-result/SKILL.md validate_skill_size.py
+[PASS] /private/tmp/workspace-langfuse-update-20261105/package/skill/record-workspace-test-result/SKILL.md: 362 words, 13 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+skill/record-workspace-test-result/SKILL.md quick_validate.py
+Skill is valid!
+
+skill/run-workspace-ui-testcase/SKILL.md validate_skill_size.py
+[PASS] /private/tmp/workspace-langfuse-update-20261105/package/skill/run-workspace-ui-testcase/SKILL.md: 378 words, 16 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+skill/run-workspace-ui-testcase/SKILL.md quick_validate.py
+Skill is valid!
+
+skill/write-qa-testcases/SKILL.md validate_skill_size.py
+[PASS] /private/tmp/workspace-langfuse-update-20261105/package/skill/write-qa-testcases/SKILL.md: 391 words, 21 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+skill/write-qa-testcases/SKILL.md quick_validate.py
+Skill is valid!

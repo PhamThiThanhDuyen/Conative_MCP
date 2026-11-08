@@ -1,0 +1,38 @@
+[PASS] /Users/duyenpham/Documents/ChatGPT/Workspace UI MCP Conative/skill-build/execute/Workspace UI & Func/SKILL.md: 213 words, 22 lines
+[PASS] /Users/duyenpham/Documents/ChatGPT/Workspace UI MCP Conative/skill-build/execute/Workspace UI & Func/skill/compare-workspace-report-qe/SKILL.md: 355 words, 15 lines
+[PASS] /Users/duyenpham/Documents/ChatGPT/Workspace UI MCP Conative/skill-build/execute/Workspace UI & Func/skill/execute-workspace-ui-func/SKILL.md: 263 words, 13 lines
+[PASS] /Users/duyenpham/Documents/ChatGPT/Workspace UI MCP Conative/skill-build/execute/Workspace UI & Func/skill/read-workspace-testcase/SKILL.md: 251 words, 11 lines
+[PASS] /Users/duyenpham/Documents/ChatGPT/Workspace UI MCP Conative/skill-build/execute/Workspace UI & Func/skill/record-workspace-test-result/SKILL.md: 290 words, 13 lines
+[PASS] /Users/duyenpham/Documents/ChatGPT/Workspace UI MCP Conative/skill-build/execute/Workspace UI & Func/skill/run-workspace-ui-testcase/SKILL.md: 354 words, 16 lines
+Summary: 6 skills, 0 warning(s), 0 failure(s)
+
+Skill is valid!
+
+Skill is valid!
+
+Skill is valid!
+
+Skill is valid!
+
+Skill is valid!
+
+Skill is valid!
+
+test_cli_writes_output_and_returns_status_codes (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_duplicate_id_is_invalid (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_failure_survives_another_blocked_field (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_incomplete_pagination_cannot_establish_missing_product (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_missing_or_mismatched_timezone_blocks_before_value_comparison (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_percent_is_not_implicitly_scaled (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_rounding_is_visible (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_same_numbers_different_row_order_and_scale (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_title_and_grouping_are_not_normalized_without_permission (test_compare_snapshot.CompareSnapshotTests) ... ok
+test_unknown_precision_and_missing_value_are_blocked (test_compare_snapshot.CompareSnapshotTests) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.085s
+
+OK
+
+PASS: 49 local links; 6 draft reference metadata records, unique IDs.
+PASS: credential-pattern scan on 27 text files; no pattern detected (not a security approval).

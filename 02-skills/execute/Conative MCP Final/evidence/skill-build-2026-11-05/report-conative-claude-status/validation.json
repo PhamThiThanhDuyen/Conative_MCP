@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-05",
+  "skill": "report-conative-claude-status",
+  "change_class": "Behavioral",
+  "requested_by": "User in current conversation",
+  "status": "Draft created; qualified human review pending; no install or publication",
+  "agreed_rules": "TOTAL=PASSED+FAILED; any failure wins; otherwise any pass means PASS; otherwise NOT RUN; blanks separate",
+  "size_baseline": {
+    "new_skill_initial": {
+      "words": 530,
+      "lines": 31,
+      "result": "PASS"
+    },
+    "root_before": {
+      "words": 799,
+      "lines": 33,
+      "result": "PASS"
+    }
+  },
+  "size_final": {
+    "new_skill": {
+      "words": 530,
+      "lines": 31,
+      "result": "PASS"
+    },
+    "root": {
+      "words": 794,
+      "lines": 37,
+      "result": "PASS"
+    }
+  },
+  "official_validators": "Both SKILL.md files valid",
+  "evaluations": [
+    "normal counts and source/org rollup",
+    "Product/Variant and source isolation",
+    "deduplicated ticket with two affected organizations",
+    "blank and unknown statuses excluded from TOTAL",
+    "PASS with a NOT RUN source per agreed rule",
+    "incomplete bug scan does not claim no bugs",
+    "six missing/ambiguous input cases rejected",
+    "all local Markdown links resolve",
+    "failed CLI evaluation produced no report artifact",
+    "credential-pattern scan clean"
+  ],
+  "root_original_sha256": "be5fd18825ade7cea0b2bbf297c17254efed2faff606829955e7ce3c9ae84952"
+}

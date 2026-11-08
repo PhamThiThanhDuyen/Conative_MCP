@@ -1,0 +1,2 @@
+[PASS] /private/tmp/workspace-langfuse-update-20261105/package/skill/compare-workspace-report-log/SKILL.md: 33 words, 4 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)

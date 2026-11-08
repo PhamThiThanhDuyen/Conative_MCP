@@ -1,0 +1,14 @@
+{
+  "Test case ID": "TC-001",
+  "Nhóm kiểm thử": "Stockout report",
+  "Ưu tiên": "Theo mẫu",
+  "Scenario": "Sản phẩm dự kiến hết hàng trong 30 ngày",
+  "Prompt": "Which Shopify products may run out in the next 30 days? Show PRODUCT ID, product name, stock and days remaining in a table.",
+  "Điều kiện / Dữ liệu test": "Có stock/forecast và rule stockout; cùng store, kỳ và timezone.",
+  "Bước thực hiện": "1. Mở New chat, gửi prompt.\n2. Mở report sau khi tải xong.\n3. So PRODUCT ID, stock và days remaining trên mọi trang với QE cùng phạm vi.\n4. So ngày hết hàng và số liệu trong phần tóm tắt với rule/nguồn.",
+  "Kết quả mong đợi": "1. Danh sách đúng sản phẩm dự kiến hết hàng trong kỳ.\n2. Số liệu table và tóm tắt khớp nguồn/rule.\n3. Bảng đọc được và không thiếu hoặc trùng sản phẩm.",
+  "Đối chiếu / Bằng chứng": "QE cùng phạm vi; rule stockout; ảnh UI khi chạy.",
+  "Trạng thái": "Chưa chạy",
+  "Ghi chú": "Synthetic offline authoring example; chưa gọi QE hoặc chạy UI.",
+  "Nguồn Prompt": "Synthetic prompt supplied for this offline walkthrough."
+}

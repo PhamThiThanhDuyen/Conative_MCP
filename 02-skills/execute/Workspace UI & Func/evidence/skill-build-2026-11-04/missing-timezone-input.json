@@ -1,0 +1,77 @@
+{
+  "case_id": "SYNTHETIC-ONLY",
+  "key": {
+    "ui": "product_id",
+    "qe": "product_id"
+  },
+  "ui_scope": {
+    "org_id": "synthetic-org",
+    "grain": "product",
+    "sources": [
+      "synthetic-source"
+    ],
+    "from": "2026-01-01",
+    "to": "2026-02-01",
+    "timezone": "UTC",
+    "date_boundary": "from-inclusive,to-exclusive",
+    "filters": []
+  },
+  "qe_scope": {
+    "org_id": "synthetic-org",
+    "grain": "product",
+    "sources": [
+      "synthetic-source"
+    ],
+    "from": "2026-01-01",
+    "to": "2026-02-01",
+    "date_boundary": "from-inclusive,to-exclusive",
+    "filters": []
+  },
+  "qe_window_complete": true,
+  "fields": [
+    {
+      "ui": "gross_sales",
+      "qe": "gross_sales",
+      "type": "decimal",
+      "grouping_separator": ","
+    },
+    {
+      "ui": "return_rate",
+      "qe": "return_rate",
+      "type": "percent"
+    },
+    {
+      "ui": "title",
+      "qe": "title",
+      "type": "string"
+    }
+  ],
+  "ui_rows": [
+    {
+      "product_id": "QA-101",
+      "gross_sales": "1,000.25",
+      "return_rate": "2%",
+      "title": "Synthetic A"
+    },
+    {
+      "product_id": "QA-102",
+      "gross_sales": "50.0",
+      "return_rate": "0%",
+      "title": "Synthetic B"
+    }
+  ],
+  "qe_rows": [
+    {
+      "product_id": "QA-102",
+      "gross_sales": "50.00",
+      "return_rate": "0",
+      "title": "Synthetic B"
+    },
+    {
+      "product_id": "QA-101",
+      "gross_sales": "1000.25",
+      "return_rate": "2.00",
+      "title": "Synthetic A"
+    }
+  ]
+}

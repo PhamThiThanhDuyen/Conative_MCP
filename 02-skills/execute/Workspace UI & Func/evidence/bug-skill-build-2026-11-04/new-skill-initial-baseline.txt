@@ -1,0 +1,2 @@
+[PASS] /private/tmp/conative-workspace-bug-y4ui43iv/Workspace UI & Func/skill/create-workspace-bug/SKILL.md: 24 words, 4 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)

@@ -31,7 +31,11 @@ Read metadata first and use exact tab names: `Claude Task 2 Checklist-R2` for te
 
 ## End-to-end testcase execution
 
-For a user-requested Round 2 execution from checklist intake through Claude, QE API, comparison, and result recording, follow [skill/execute-conative-round2-comparison/SKILL.md](skill/execute-conative-round2-comparison/SKILL.md). Unmapped expected fields may be skipped for field-level comparison, but any such field prevents PASS; use PARTIAL if the mapped checks otherwise pass. Use the same status and Note contract in the report and workbook.
+For end-to-end testcase execution, follow [execute-conative-round2-comparison](skill/execute-conative-round2-comparison/SKILL.md). Unmapped expected fields prevent PASS; use PARTIAL when mapped checks otherwise pass. Reports and workbook results share the status and Note contract.
 ## Field Compare status aggregation
 
 When the user asks to aggregate completed testcase results into Product/Variant status cells on `Field compare`, follow [skill/record-conative-field-compare-status/SKILL.md](skill/record-conative-field-compare-status/SKILL.md). It attributes `FAILED` to specific fields using Root cause and field-level comparison evidence, rather than propagating a testcase-level failure to every compared field.
+
+## Claude status reporting
+
+For existing Claude statuses, follow [report-conative-claude-status](skill/report-conative-claude-status/SKILL.md). Use its TỔNG QUAN, CHI TIẾT, BUGS format without status writeback.

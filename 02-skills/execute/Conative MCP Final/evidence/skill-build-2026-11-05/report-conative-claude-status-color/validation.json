@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-05",
+  "change_class": "Editorial",
+  "change": "Add red FAIL and green PASS markers to source lines in both report sections",
+  "approval": "No promotion or approval claimed",
+  "baseline": {
+    "words": 530,
+    "lines": 31,
+    "result": "PASS"
+  },
+  "original_sha256": {
+    "SKILL.md": "fd67175f95382bf9b52f6d7ab4d93cdb81317b479470dd2ca1bb7f4ec056c121",
+    "assets/report-template.md": "83e4bdbd68585ceaa059fbd789cb972fad66d421052f570362cf0aa951343935",
+    "scripts/build_report.py": "59e15f5252e1fddda7a805311f44dc066a11f920ace876020c73f9cd34b7897c"
+  },
+  "checks": [
+    {
+      "fixture": "normal.json",
+      "source_lines": 8,
+      "presentation_only": true
+    },
+    {
+      "fixture": "conative-claude-status-20261105-input.json",
+      "source_lines": 14,
+      "presentation_only": true
+    }
+  ],
+  "final": {
+    "words": 568,
+    "lines": 32,
+    "result": "PASS",
+    "official_validator": "Skill is valid!"
+  }
+}

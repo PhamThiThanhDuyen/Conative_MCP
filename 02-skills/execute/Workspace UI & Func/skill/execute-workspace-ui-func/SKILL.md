@@ -1,11 +1,17 @@
 ---
 name: execute-workspace-ui-func
-description: Run selected Workspace UI or functional test cases from Update_TestCase and record observed results against their expected behavior.
+description: Orchestrate a Conative Workspace test run from fresh testcase intake through UI execution, Langfuse query_data Input/Output comparison and authorized result recording.
 ---
 
 # Thực thi Workspace UI & Func
 
-1. Xác định môi trường, tổ chức và TC ID theo phạm vi yêu cầu. Mở Update_TestCase theo [tài liệu nguồn](../../references/sources.md) và xác nhận ID duy nhất.
-2. Đọc Precondition, dữ liệu test, URL, Steps, Expected Result và các prompt liên quan. Dùng [quy ước cột](../../references/sheet-column-contract.md) để chọn ngôn ngữ và điền placeholder. Nếu thiếu fixture hoặc quyền cần thiết, ghi rõ điều kiện chưa đáp ứng.
-3. Trước khi chạy trên môi trường live hoặc kết nối khách hàng, áp dụng tiêu chuẩn live testing của repo. Chạy đúng các bước của TC và đối chiếu phần giao diện cùng phần backend khi được yêu cầu. Phân biệt dữ liệu quan sát với suy luận.
-4. Ghi kết quả theo [mẫu](../../assets/test-result-template.md). Pass khi toàn bộ kỳ vọng bắt buộc đã được xác minh; Fail khi có sai lệch quan sát được; Blocked khi thiếu điều kiện để thực thi hoặc xác minh; Not Run khi chưa thực thi. Chỉ ghi vào Google Sheets khi người dùng yêu cầu.
+1. Đọc [flow](../../references/execution-flow.md) và áp dụng quy định repo đúng với hành động dự kiến. Kế thừa org, model và quyền ghi kết quả còn hiệu lực trong chat; không yêu cầu xác nhận lại nếu phạm vi không đổi.
+2. Dùng [read-workspace-testcase](../read-workspace-testcase/SKILL.md). Đóng băng snapshot gồm prompt, Steps, Expected, org, fixture và tiêu chí đối chiếu cho lần chạy này.
+3. Dùng [run-workspace-ui-testcase](../run-workspace-ui-testcase/SKILL.md). Thực hiện lần lượt các bước và đợi phản hồi hoàn tất. Không sửa prompt để ép có Product ID hoặc ép số liệu khớp.
+4. Khi kiểm dữ liệu, dùng [compare-workspace-report-log](../compare-workspace-report-log/SKILL.md): conversationId → đúng session/turn → query_data Preview/Raw. Chỉ so dữ liệu UI trả về với Input/Output đúng run; không chấm Input có đúng prompt/Expected hay không. Sai khác Input ↔ prompt không tạo failure/blocker compare. Không dùng QE API Postman. TC cũ còn nhắc QE thì giữ nguyên snapshot, ghi override nguồn theo yêu cầu hiện tại; không tự sửa Sheet. Nếu một phần bị chặn, hoàn tất phần độc lập và nêu giới hạn.
+5. Kết luận theo [comparison contract](../../references/comparison-contract.md). Ghi phạm vi thực sự đã kiểm tra và phần chưa xác minh.
+6. Nếu đã có yêu cầu ghi Sheet, dùng [record-workspace-test-result](../record-workspace-test-result/SKILL.md): ghi status, Note và thời điểm hoàn tất thực thi vào Version đúng model. Nếu chỉ yêu cầu chạy, trả báo cáo và link chat; không suy ra quyền ghi lần đầu.
+
+Khi người dùng yêu cầu “đọc lại và chạy lại”, bắt đầu một lần chạy mới từ snapshot live mới. Nếu người dùng chỉ đổi format Note, dùng kết quả đã xác minh, không chạy UI hoặc thu log mới. Khi nhận “stop”, dừng action mới, gửi prompt và ghi Sheet; không tự tiếp tục sau đó.
+
+Đầu ra: kết quả có bằng chứng, link chat thực tế, session/trace/observation URL, bảng Input và khác biệt Output theo field/ID, và xác nhận các ô status/Note/Version đã ghi khi được phép. Không dùng kết quả lịch sử để chấm lần chạy mới.
