@@ -1,0 +1,14 @@
+[PASS] /private/tmp/workspace-verify-activity-20261111/skill/verify-workspace-bug/SKILL.md: 706 words, 34 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)
+
+OpenAI quick validator attempt:
+Traceback (most recent call last):
+  File "/Users/duyenpham/.codex/skills/.system/skill-creator/scripts/quick_validate.py", line 10, in <module>
+    import yaml
+ModuleNotFoundError: No module named 'yaml'
+
+PASS: local simple frontmatter, name, description and scaffold checks.
+
+PASS: 31 local links; credential-pattern scan; no conflicting old status prohibition in changed files.
+
+PASS: synthetic PASS/FAIL output fields, conditional Reason and scoped findings. Author walkthrough only; no live mutation.

@@ -1,0 +1,2 @@
+[PASS] /private/tmp/workspace-verify-bug-20261111/skill/verify-workspace-bug/SKILL.md: 602 words, 31 lines
+Summary: 1 skills, 0 warning(s), 0 failure(s)

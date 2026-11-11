@@ -18,6 +18,7 @@ Khi soạn hoặc rà case, dùng nguồn và mẫu người dùng chỉ định
 | Đọc lại TC, xác định prompt và scope | [read-workspace-testcase](skill/read-workspace-testcase/SKILL.md) |
 | Thực thi các bước trên Workspace | [run-workspace-ui-testcase](skill/run-workspace-ui-testcase/SKILL.md) |
 | So sánh dữ liệu UI với Input/Output log response | [compare-workspace-report-log](skill/compare-workspace-report-log/SKILL.md) |
+| Verify Bug đã cung cấp, tìm TC liên quan, chạy lại và cập nhật Sheet/Activity | [verify-workspace-bug](skill/verify-workspace-bug/SKILL.md) |
 | Soạn hoặc tạo Bug Workspace theo yêu cầu | [create-workspace-bug](skill/create-workspace-bug/SKILL.md) |
 | Ghi status hoặc sửa Note | [record-workspace-test-result](skill/record-workspace-test-result/SKILL.md) |
 

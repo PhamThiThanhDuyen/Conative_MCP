@@ -1,0 +1,70 @@
+{
+  "mode": "offline author walkthrough; synthetic fixtures only; no live calls",
+  "request": "Verify Bug #QA-201, update Scenario_UI and comment Activity.",
+  "ticket": {
+    "id": "QA-201",
+    "issue": "Stock descending sort puts 5 before 10",
+    "expected": "Stock sorted descending",
+    "org": "Synthetic QA",
+    "model": "Synthetic Model"
+  },
+  "rows": [
+    {
+      "tc": "TC-001",
+      "row": 2,
+      "ticket_ref": "Bug #QA-201",
+      "observed_stock": [
+        10,
+        5
+      ],
+      "other_required_assertion": "UI gross_sales=100; correct Output gross_sales=100.25; verified same ID/turn",
+      "all_required_assertions_checked": true
+    },
+    {
+      "tc": "TC-002",
+      "row": 3,
+      "ticket_ref": "Bug #QA-2019",
+      "status": "FAILED"
+    },
+    {
+      "tc": "TC-003",
+      "row": 4,
+      "ticket_ref": "Bug #QA-201",
+      "observed_stock": [
+        5,
+        10
+      ],
+      "all_required_assertions_checked": true
+    },
+    {
+      "tc": "TC-004",
+      "row": 5,
+      "ticket_ref": "none",
+      "status": "FAILED",
+      "issue": "Unrelated login control"
+    }
+  ],
+  "cases": [
+    {
+      "name": "normal mixed findings",
+      "rows": [
+        "TC-001",
+        "TC-003"
+      ]
+    },
+    {
+      "name": "missing input",
+      "rows": [
+        "TC-001"
+      ],
+      "override": "No verified UI fixture/response; required assertion cannot run"
+    },
+    {
+      "name": "no associated testcase",
+      "rows": [
+        "TC-002",
+        "TC-004"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "synthetic": true,
+  "not_live_write": true,
+  "selected": [
+    "TC-001",
+    "TC-003"
+  ],
+  "excluded": [
+    "TC-002: ticket ID is QA-2019",
+    "TC-004: unrelated FAILED case"
+  ],
+  "updates": [
+    {
+      "tc": "TC-001",
+      "status": "FAILED",
+      "note": "- Actual result:\n        + UI: Synthetic Product QA-P1: Gross sales=100.\n        + Log response: QA-P1 gross_sales=100.25, same verified synthetic response.\n        + Difference: Lỗi ngoài ticket QA-201: Gross sales thấp hơn Output 0.25.\n- conversion ID: [synthetic chat TC-001]\n- Expected result:\n        + UI: Gross sales=100.25.\n- Bug reference: QA-201 (không tái hiện lỗi sort trong phạm vi đã kiểm).",
+      "version": "11/11/2026 10:00:00 (GMT+7)"
+    },
+    {
+      "tc": "TC-003",
+      "status": "FAILED",
+      "note": "- Actual result:\n        + UI: Stock desc hiển thị 5 trước 10.\n        + Log response: Không áp dụng cho assertion sort UI trong fixture này.\n        + Difference: Lỗi thuộc ticket QA-201: thứ tự không giảm dần.\n- conversion ID: [synthetic chat TC-003]\n- Expected result:\n        + UI: Stock 10 trước 5.\n- Bug reference: QA-201.",
+      "version": "11/11/2026 10:05:00 (GMT+7)"
+    }
+  ]
+}

@@ -1,13 +1,13 @@
 ---
 knowledge_id: QA-WORKSPACE-UI-FUNC-FLOW-001
 knowledge_type: qa-intelligence
-source: SRC-WORKSPACE-USER-FLOW-20261104; SRC-WORKSPACE-LANGFUSE-FLOW-20261105; SRC-WORKSPACE-VERSION-20261105; SRC-WORKSPACE-COMPARE-UI-LOG-20261105
+source: SRC-WORKSPACE-VERIFY-BUG-20261111; SRC-WORKSPACE-USER-FLOW-20261104; SRC-WORKSPACE-LANGFUSE-FLOW-20261105; SRC-WORKSPACE-VERSION-20261105; SRC-WORKSPACE-COMPARE-UI-LOG-20261105
 owner: Conative QA owner (review pending)
 authority: source-derived
 scope: End-to-end Workspace UI and functional testcase execution
 target_release: current
 status: needs-review
-last_verified: 2026-11-05
+last_verified: 2026-11-11
 supersedes: []
 ---
 
@@ -66,6 +66,10 @@ flowchart TD
 | Điều phối | execute-workspace-ui-func | Báo cáo cuối và phần chưa xác minh |
 
 UI → log → compare cho từng TC trước khi chuyển TC khác. Xem [Langfuse runtime](langfuse-log-runtime.md) để chọn đúng turn/query và đọc đầy đủ Raw. Không chạy lại UI/API để lấp log thiếu hoặc ép kết quả khớp.
+
+## Verify Bug theo ticket
+
+Khi người dùng cung cấp ticket để verify và cập nhật kết quả, dùng [verify-workspace-bug](../skill/verify-workspace-bug/SKILL.md): đọc ticket → tìm TC liên quan trong Scenario_UI → chạy mới từng TC theo flow trên → ghi status/Note/Version → comment Activity PASS/FAIL theo mẫu, có thời gian, conversion link và ảnh; chỉ FAIL có Reason thuộc lỗi ticket. Giữ riêng kết luận lỗi ticket và status toàn TC; lỗi ngoài ticket vẫn ghi Sheet. Chuyển ticket sang `In testing` khi bắt đầu verify và đọc lại sau cập nhật; không tạo Bug khác.
 
 ## Đổi hướng trong chat
 

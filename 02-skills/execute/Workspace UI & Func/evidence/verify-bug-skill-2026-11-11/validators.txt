@@ -1,0 +1,19 @@
+[PASS] /private/tmp/workspace-verify-bug-20261111/SKILL.md: 294 words, 27 lines
+[PASS] /private/tmp/workspace-verify-bug-20261111/skill/compare-workspace-report-log/SKILL.md: 404 words, 13 lines
+[PASS] /private/tmp/workspace-verify-bug-20261111/skill/compare-workspace-report-qe/SKILL.md: 57 words, 4 lines
+[PASS] /private/tmp/workspace-verify-bug-20261111/skill/create-workspace-bug/SKILL.md: 669 words, 28 lines
+[PASS] /private/tmp/workspace-verify-bug-20261111/skill/execute-workspace-ui-func/SKILL.md: 339 words, 13 lines
+[PASS] /private/tmp/workspace-verify-bug-20261111/skill/read-workspace-testcase/SKILL.md: 294 words, 11 lines
+[PASS] /private/tmp/workspace-verify-bug-20261111/skill/record-workspace-test-result/SKILL.md: 362 words, 13 lines
+[PASS] /private/tmp/workspace-verify-bug-20261111/skill/run-workspace-ui-testcase/SKILL.md: 378 words, 16 lines
+[PASS] /private/tmp/workspace-verify-bug-20261111/skill/verify-workspace-bug/SKILL.md: 628 words, 32 lines
+[PASS] /private/tmp/workspace-verify-bug-20261111/skill/write-qa-testcases/SKILL.md: 400 words, 21 lines
+Summary: 10 skills, 0 warning(s), 0 failure(s)
+
+PASS: local checks of simple frontmatter, names, descriptions and unfinished scaffolds. OpenAI validator unavailable: missing PyYAML.
+
+PASS: 44 local Markdown links resolve in staged package or original repo.
+
+PASS: credential-pattern scan on changed skill/reference/template files; no candidate secret detected.
+
+PASS: synthetic artifact consistency (two linked cases; unrelated value error retained only in Sheet draft). This is an author walkthrough, not an independent runtime evaluation.

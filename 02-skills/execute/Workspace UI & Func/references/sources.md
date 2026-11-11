@@ -1,13 +1,13 @@
 ---
 knowledge_id: QA-WORKSPACE-UI-FUNC-SOURCES-001
 knowledge_type: qa-intelligence
-source: SRC-WORKSPACE-USER-FLOW-20261104; SRC-WORKSPACE-LANGFUSE-FLOW-20261105; SRC-WORKSPACE-LANGFUSE-OBS-20261105; SRC-WORKSPACE-COMPARE-UI-LOG-20261105
+source: SRC-WORKSPACE-VERIFY-BUG-20261111; SRC-WORKSPACE-USER-FLOW-20261104; SRC-WORKSPACE-LANGFUSE-FLOW-20261105; SRC-WORKSPACE-LANGFUSE-OBS-20261105; SRC-WORKSPACE-COMPARE-UI-LOG-20261105
 owner: Conative QA owner (review pending)
 authority: source-derived
 scope: Workspace UI and functional testcase execution sources
 target_release: current
 status: needs-review
-last_verified: 2026-11-05
+last_verified: 2026-11-11
 supersedes: []
 ---
 
@@ -21,6 +21,7 @@ Các nguồn sau đã được người dùng chỉ định trong chat ngày 04/
 |---|---|---|---|
 | SRC-WORKSPACE-USER-FLOW-20261104 | Người yêu cầu; QA owner review pending | Provided / needs-review | Các chỉ dẫn trong chat hiện tại: TC live, org được chọn, status và Note ngắn; phần QE đã được yêu cầu mới thay thế |
 | SRC-WORKSPACE-VERSION-20261105 | Người yêu cầu; QA owner review pending | Provided / needs-review | Chỉ dẫn trong chat ngày 05/11/2026: mỗi lần thực thi và ghi status, điền thời điểm hoàn tất thực thi vào Version đúng model; giờ Việt Nam, giữ Version khi chỉ sửa Note |
+| SRC-WORKSPACE-VERIFY-BUG-20261111 | Người yêu cầu; QA owner review pending | Provided / needs-review | Chỉ dẫn chat 11/11/2026: đọc ticket, tìm TC Scenario_UI liên quan, rerun bằng skill sẵn có, ghi status/Note theo mẫu và comment Activity chỉ trong scope ticket; cập nhật cùng ngày: Activity có PASS/FAIL, thời gian, conversion link, ảnh, Reason chỉ khi FAIL và status ticket In testing; [skill](../skill/verify-workspace-bug/SKILL.md) |
 | SRC-WORKSPACE-UI-WORKBOOK | Conative QA owner review pending | Provided / needs-review | Workbook Workspace; nguồn TC mặc định Scenario_UI theo cập nhật của người dùng ngày 04/11/2026; các tab bổ trợ bên dưới |
 | SRC-WORKSPACE-QE-MAPPING | Conative QA/Data owner review pending | Historical / superseded for Workspace comparison | Mapping QE lịch sử; không dùng làm oracle log hiện tại |
 | SRC-WORKSPACE-QE-FLOW | Conative QA owner review pending | Historical / superseded for Workspace comparison | Sibling Conative MCP Final/execute-api-QE.md; không còn dependency thực thi Workspace |
